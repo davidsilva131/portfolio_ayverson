@@ -1,0 +1,31 @@
+---
+// Atom — reusable pill badge with optional colored dot indicator
+interface Props {
+  label: string
+  dot?: 'green' | 'red' | 'violet' | 'none'
+  size?: 'sm' | 'md'
+}
+
+const { label, dot = 'green', size = 'md' } = Astro.props
+
+const dotColors = {
+  green:  'bg-emerald-400 shadow-[0_0_6px_#34d399]',
+  red:    'bg-red-500    shadow-[0_0_6px_#ef4444]',
+  violet: 'bg-violet-500 shadow-[0_0_6px_#8b5cf6]',
+  none:   '',
+}
+
+const sizes = {
+  sm: 'px-3 py-1 text-xs gap-1.5',
+  md: 'px-4 py-1.5 text-sm gap-2',
+}
+---
+
+<span
+  class={`inline-flex items-center rounded-full border border-white/10 bg-white/5 font-medium text-white/80 backdrop-blur-sm ${sizes[size]}`}
+>
+  {dot !== 'none' && (
+    <span class={`h-1.5 w-1.5 shrink-0 rounded-full ${dotColors[dot]}`}></span>
+  )}
+  {label}
+</span>

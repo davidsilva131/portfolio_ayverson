@@ -1,0 +1,33 @@
+---
+// Molecule — single collapsible FAQ row using <details>/<summary> for zero-JS accordion
+interface Props {
+  question: string
+  answer: string
+}
+
+const { question, answer } = Astro.props
+---
+
+<details class="group border-b border-white/8 py-6 first:border-t">
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-base font-semibold text-white/90 transition-colors duration-200 group-open:text-cyan-400 sm:text-lg">
+    {question}
+    <span
+      aria-hidden="true"
+      class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all duration-200 group-open:border-cyan-400/30 group-open:text-cyan-400"
+    >
+      <!-- Plus icon -->
+      <svg class="group-open:hidden" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19" />
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+      <!-- Minus icon -->
+      <svg class="hidden group-open:block" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12" />
+      </svg>
+    </span>
+  </summary>
+
+  <div class="mt-5 border-t border-white/8 pt-4 text-sm leading-relaxed text-white/55 sm:text-base">
+    <Fragment set:html={answer} />
+  </div>
+</details>

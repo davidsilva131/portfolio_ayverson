@@ -1,0 +1,136 @@
+---
+// Molecule — Contact modal with social network links and email
+---
+
+<div
+  id="contact-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contact-modal-title"
+  class="pointer-events-none fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 transition-opacity duration-300"
+>
+  <!-- Backdrop -->
+  <div
+    id="contact-modal-backdrop"
+    class="absolute inset-0 bg-black/70 backdrop-blur-sm"
+  ></div>
+
+  <!-- Panel -->
+  <div class="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 shadow-2xl shadow-black/50">
+
+    <!-- Close button -->
+    <button
+      id="close-contact-modal"
+      type="button"
+      aria-label="Cerrar modal"
+      class="absolute right-4 top-4 rounded-full p-2 text-white/40 transition-colors duration-200 hover:bg-white/10 hover:text-white"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Header -->
+    <div class="mb-8 text-center">
+      <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-violet-600 to-indigo-600 shadow-[0_0_24px_rgba(139,92,246,0.4)]">
+        <svg class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+        </svg>
+      </div>
+      <h2 id="contact-modal-title" class="text-2xl font-bold text-white">¡Hablemos!</h2>
+      <p class="mt-1.5 text-sm text-white/45">Elige por dónde quieres contactarme</p>
+    </div>
+
+    <!-- Social links -->
+    <div class="flex flex-col gap-3">
+
+      <!-- X (Twitter) -->
+      <a
+        href="https://x.com/vfxayverson"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-white/20 hover:bg-white/8"
+      >
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-black ring-1 ring-white/15">
+          <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L2.144 2.25h6.964l4.263 5.631zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          </svg>
+        </span>
+        <div class="min-w-0">
+          <p class="text-sm font-semibold text-white">X (Twitter)</p>
+          <p class="text-xs text-white/40">@vfxayverson</p>
+        </div>
+        <svg class="ms-auto h-4 w-4 shrink-0 text-white/20 transition-all duration-200 group-hover:translate-x-1 group-hover:text-white/60" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a
+        href="https://www.instagram.com/ayversonvfx"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-pink-500/30 hover:bg-pink-500/5"
+      >
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-yellow-400 via-pink-500 to-purple-600">
+          <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </span>
+        <div class="min-w-0">
+          <p class="text-sm font-semibold text-white">Instagram</p>
+          <p class="text-xs text-white/40">@ayversonvfx</p>
+        </div>
+        <svg class="ms-auto h-4 w-4 shrink-0 text-white/20 transition-all duration-200 group-hover:translate-x-1 group-hover:text-pink-400/60" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+
+      <!-- Email -->
+      <a
+        href="mailto:ayversonyaraure2015@gmail.com"
+        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-violet-500/30 hover:bg-violet-500/5"
+      >
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-violet-600">
+          <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+        </span>
+        <div class="min-w-0">
+          <p class="text-sm font-semibold text-white">Correo Electrónico</p>
+          <p class="truncate text-xs text-white/40">ayversonyaraure2015@gmail.com</p>
+        </div>
+        <svg class="ms-auto h-4 w-4 shrink-0 text-white/20 transition-all duration-200 group-hover:translate-x-1 group-hover:text-violet-400/60" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal     = document.getElementById('contact-modal')!
+  const backdrop  = document.getElementById('contact-modal-backdrop')!
+  const closeBtn  = document.getElementById('close-contact-modal')!
+  const openBtns  = document.querySelectorAll('[data-open-contact-modal]')
+
+  function openModal() {
+    modal.classList.remove('pointer-events-none', 'opacity-0')
+    modal.classList.add('pointer-events-auto', 'opacity-100')
+    document.body.style.overflow = 'hidden'
+  }
+
+  function closeModal() {
+    modal.classList.add('pointer-events-none', 'opacity-0')
+    modal.classList.remove('pointer-events-auto', 'opacity-100')
+    document.body.style.overflow = ''
+  }
+
+  openBtns.forEach(btn => btn.addEventListener('click', openModal))
+  closeBtn.addEventListener('click', closeModal)
+  backdrop.addEventListener('click', closeModal)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal()
+  })
+</script>

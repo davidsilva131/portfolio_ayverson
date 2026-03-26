@@ -1,0 +1,84 @@
+---
+// Organism — FAQ (Preguntas Frecuentes) section: section header + accordion list
+import Badge from "../atoms/Badge.astro"
+import FaqItem from "../molecules/FaqItem.astro"
+
+const faqs = [
+  {
+    question: "¿Por qué debería confiar en ti?",
+    answer:
+      "Llevo más de 2 años editando contenido para creadores en TikTok, YouTube y Twitch. Cada proyecto lo trato con la misma dedicación y atención al detalle, y siempre estoy disponible para ajustar el resultado hasta que quedes 100% satisfecho.",
+  },
+  {
+    question: "¿Qué tipo de contenido editas?",
+    answer:
+      "Edito contenido vertical y horizontal: Shorts, Reels, TikToks, highlights de Twitch, podcasts editados y vlogs. Si tienes un formato específico en mente, cuéntame y lo evaluamos.",
+  },
+  {
+    question: "¿Cuáles son tus métodos de pago?",
+    answer:
+      "Acepto pagos vía <strong>Binance, PayPal y Zelle,</strong> antes de realizar la edición.",
+  },
+  {
+    question: "¿Puedo elegir los clips o tú los seleccionas?",
+    answer:
+      "Tú eliges: puedes mandarme el <strong>archivo crudo</strong> o me encargo de buscar los mejores momentos.",
+  },
+  {
+    question: "¿Cuánto tiempo tardas en entregar?",
+    answer:
+      "Dependiendo del paquete, la entrega es de <strong>24 a 72 horas</strong> después que se realice el pago correspondiente.",
+  },
+  {
+    question: "¿Puedo pedir ajustes después de la entrega?",
+    answer:
+      "Sí, incluyo <strong>3 revisiones gratuitas</strong> para asegurarme de que quedes satisfecho. Revisiones adicionales contienen un costo.",
+  },
+  {
+    question: "¿Puedo tener un paquete personalizado para mi contenido?",
+    answer: "Sí, puedes crear tu propio paquete para tu contenido.",
+  },
+]
+---
+
+<section id="faq" class="relative z-10 overflow-hidden py-28">
+
+  <!-- Ambient glows -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-32 top-1/3 h-120 w-120 rounded-full bg-cyan-700/10 blur-[130px]"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-24 bottom-1/4 h-105 w-105 rounded-full bg-violet-700/10 blur-[120px]"
+  ></div>
+
+  <!-- Dot grid -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[30px_30px]"
+  ></div>
+
+  <div class="relative mx-auto w-full max-w-3xl px-5">
+
+    <!-- ── Section header ── -->
+    <div class="mb-16 flex flex-col items-center gap-4 text-center">
+      <Badge label="FAQ" dot="violet" />
+      <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
+        <span class="text-white">Preguntas </span>
+        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">frecuentes</span>
+      </h2>
+      <p class="max-w-md text-sm text-white/35 sm:text-base">
+        Todo lo que necesitas saber antes de empezar a trabajar conmigo.
+      </p>
+    </div>
+
+    <!-- ── Accordion list ── -->
+    <div>
+      {faqs.map((faq) => (
+        <FaqItem question={faq.question} answer={faq.answer} />
+      ))}
+    </div>
+
+  </div>
+</section>

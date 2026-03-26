@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-base: #050505;
+  --color-bg-surface: #0d0d0d;
+  --color-accent-violet: #6d28d9;
+  --color-accent-indigo: #3730a3;
+  --color-accent-cyan: #0e7490;
+}
+
+html,
+body {
+  @apply min-h-screen m-0 p-0;
+  background-color: var(--color-bg-base);
+}

@@ -1,0 +1,82 @@
+---
+// Organism — "Clientes" section: section header + 3-column grid of creator client cards
+import Badge from "../atoms/Badge.astro"
+import ClientCard from "../molecules/ClientCard.astro"
+
+const clients = [
+  {
+    name:        'Botti',
+    platform:    'tiktok'  as const,
+    subscribers: '2.2k',
+    avatar:      '/creators/botti_logo.avif',
+    banner:      '/creators/botti_banner.avif',
+  },
+  {
+    name:        'JustVisa',
+    platform:    'twitch'  as const,
+    subscribers: '221k',
+    avatar:      '/creators/justvisa_logo.avif',
+    banner:      '/creators/justvisa_banner.avif',
+  },
+  {
+    name:        'iSBreath',
+    platform:    'tiktok'  as const,
+    subscribers: '1.2k',
+    avatar:      '/creators/badbunny_logo.avif',
+    banner:      '/creators/badbunny_banner.avif',
+  },
+]
+---
+
+<section id="clientes" class="relative z-10 overflow-hidden py-28">
+
+  <!-- Ambient glows -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-40 top-1/4 h-[500px] w-[500px] rounded-full bg-purple-700/12 blur-[140px]"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-24 bottom-0 h-[440px] w-[440px] rounded-full bg-cyan-700/10 blur-[120px]"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-fuchsia-800/10 blur-[90px]"
+  ></div>
+
+  <!-- Dot grid -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[30px_30px]"
+  ></div>
+
+  <div class="relative mx-auto w-full max-w-6xl px-5">
+
+    <!-- ── Section header ── -->
+    <div class="mb-16 flex flex-col items-center gap-4 text-center">
+      <Badge label="Clientes" dot="violet" />
+      <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
+        <span class="text-white">Creadores que </span>
+        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">confían</span>
+        <span class="text-white"> en mí</span>
+      </h2>
+      <p class="max-w-md text-sm text-white/35 sm:text-base">
+        Algunos de los creadores para quienes he editado contenido de alto impacto.
+      </p>
+    </div>
+
+    <!-- ── Client card grid ── -->
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {clients.map(client => (
+        <ClientCard
+          name={client.name}
+          platform={client.platform}
+          subscribers={client.subscribers}
+          avatar={client.avatar}
+          banner={client.banner}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>

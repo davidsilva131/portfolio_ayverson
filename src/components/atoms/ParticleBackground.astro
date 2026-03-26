@@ -1,0 +1,169 @@
+---
+// Atom — animated particle canvas: constellation / galaxy effect
+---
+
+<canvas id="particle-canvas" aria-hidden="true" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
+<script is:inline>
+(function () {
+  const canvas = document.getElementById("particle-canvas");
+  const ctx    = canvas.getContext("2d");
+
+  const PARTICLE_COUNT  = 120;
+  const CONNECTION_DIST = 150;
+  const CLUSTER_COUNT   = 4;
+  const SPEED           = 0.35;
+
+  const COLORS = [
+    [139, 92,  246],
+    [99,  102, 241],
+    [34,  211, 238],
+    [167, 139, 250],
+    [192, 132, 252],
+  ];
+
+  let W, H, particles, clusters;
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initClusters() {
+    clusters = [];
+    for (let i = 0; i < CLUSTER_COUNT; i++) {
+      clusters.push({
+        x:  rand(W * 0.15, W * 0.85),
+        y:  rand(H * 0.15, H * 0.85),
+        vx: rand(-0.25, 0.25),
+        vy: rand(-0.25, 0.25),
+      });
+    }
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const ci = i % CLUSTER_COUNT;
+      const cx = clusters[ci].x;
+      const cy = clusters[ci].y;
+      particles.push({
+        x:  rand(cx - 200, cx + 200),
+        y:  rand(cy - 200, cy + 200),
+        vx: rand(-SPEED, SPEED),
+        vy: rand(-SPEED, SPEED),
+        r:  rand(1.2, 2.6),
+        color:   COLORS[Math.floor(Math.random() * COLORS.length)],
+        alpha:   rand(0.55, 1),
+        cluster: ci,
+      });
+    }
+  }
+
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a  = particles[i];
+        const b  = particles[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d >= CONNECTION_DIST) continue;
+
+        const t      = 1 - d / CONNECTION_DIST;
+        const bonus  = a.cluster === b.cluster ? 1.7 : 0.75;
+        const alpha  = Math.min(t * t * 0.6 * bonus, 0.7);
+        const rm     = (a.color[0] + b.color[0]) >> 1;
+        const gm     = (a.color[1] + b.color[1]) >> 1;
+        const bm     = (a.color[2] + b.color[2]) >> 1;
+
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.lineWidth   = t * 1.5 * bonus;
+        ctx.strokeStyle = "rgba(" + rm + "," + gm + "," + bm + "," + alpha + ")";
+        ctx.stroke();
+      }
+    }
+  }
+
+  function drawParticles() {
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const r = p.color[0], g = p.color[1], b = p.color[2];
+
+      // glow halo
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 6);
+      grad.addColorStop(0, "rgba(" + r + "," + g + "," + b + "," + p.alpha + ")");
+      grad.addColorStop(1, "rgba(" + r + "," + g + "," + b + ",0)");
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 6, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // solid core
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + p.alpha + ")";
+      ctx.fill();
+    }
+  }
+
+  function update() {
+    // move cluster centers
+    for (let i = 0; i < clusters.length; i++) {
+      const c = clusters[i];
+      c.x += c.vx;
+      c.y += c.vy;
+      if (c.x < 0 || c.x > W) c.vx *= -1;
+      if (c.y < 0 || c.y > H) c.vy *= -1;
+    }
+
+    // move particles + gravitational pull
+    for (let i = 0; i < particles.length; i++) {
+      const p  = particles[i];
+      const cx = clusters[p.cluster].x;
+      const cy = clusters[p.cluster].y;
+
+      p.vx += (cx - p.x) * 0.000022;
+      p.vy += (cy - p.y) * 0.000022;
+
+      const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (spd > SPEED * 2) { p.vx *= 0.96; p.vy *= 0.96; }
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      // wrap edges
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10;
+      if (p.y > H + 10) p.y = -10;
+    }
+  }
+
+  function frame() {
+    // fill dark background so canvas IS the page background
+    ctx.fillStyle = "#050505";
+    ctx.fillRect(0, 0, W, H);
+
+    update();
+    drawConnections();
+    drawParticles();
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  initClusters();
+  initParticles();
+  requestAnimationFrame(frame);
+
+  window.addEventListener("resize", function () {
+    resize();
+    initClusters();
+    initParticles();
+  });
+})();
+</script>

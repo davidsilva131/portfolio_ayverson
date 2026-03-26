@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/organisms/Navbar.astro";
+import HeroSection from "../components/organisms/HeroSection.astro";
+import AboutSection from "../components/organisms/AboutSection.astro";
+import ClientsSection from "../components/organisms/ClientsSection.astro";
+import VideosSection from "../components/organisms/VideosSection.astro";
+import FaqSection from "../components/organisms/FaqSection.astro";
+import ParticleBackground from "../components/atoms/ParticleBackground.astro";
+import ContactModal from "../components/molecules/ContactModal.astro";
+import Footer from "../components/organisms/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayverson Portfolio</title>
+  </head>
+  <body class="relative min-h-screen">
+
+    <ParticleBackground />
+
+    <Navbar />
+
+    <main class="relative z-10">
+      <HeroSection videoId="dQw4w9WgXcQ" />
+      <AboutSection />
+      <ClientsSection />
+      <VideosSection />
+      <FaqSection />
+    </main>
+
+    <Footer />
+
+    <ContactModal />
+
+  </body>
+</html>
