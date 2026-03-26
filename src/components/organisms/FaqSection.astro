@@ -3,7 +3,11 @@
 import Badge from "../atoms/Badge.astro"
 import FaqItem from "../molecules/FaqItem.astro"
 
-const faqs = [
+const faqs: Array<{
+  question: string
+  answer: string
+  parts?: Array<string | { bold: string }>
+}> = [
   {
     question: "¿Por qué debería confiar en ti?",
     answer:
@@ -76,7 +80,7 @@ const faqs = [
     <!-- ── Accordion list ── -->
     <div>
       {faqs.map((faq) => (
-        <FaqItem question={faq.question} answer={faq.answer} />
+        <FaqItem question={faq.question} answer={faq.answer} parts={faq.parts} />
       ))}
     </div>
 

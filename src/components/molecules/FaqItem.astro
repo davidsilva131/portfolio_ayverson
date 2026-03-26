@@ -3,9 +3,13 @@
 interface Props {
   question: string
   answer: string
+    /** Optional parts array for answers that need inline bold segments.
+   *  Each entry is either a plain string or { bold: string }.
+   */
+  parts?: Array<string | { bold: string }>
 }
 
-const { question, answer } = Astro.props
+const { question, answer, parts  } = Astro.props
 ---
 
 <details class="group border-b border-white/8 py-6 first:border-t">
@@ -28,6 +32,15 @@ const { question, answer } = Astro.props
   </summary>
 
   <div class="mt-5 border-t border-white/8 pt-4 text-sm leading-relaxed text-white/55 sm:text-base">
-    <Fragment set:html={answer} />
-  </div>
+    {parts ? (
+      <p>
+        {parts.map((part) =>
+          typeof part === 'string'
+            ? part
+            : <strong class="font-bold text-white/80">{part.bold}</strong>
+        )}
+      </p>
+    ) : (
+      <p>{answer}</p>
+    )}  </div>
 </details>
