@@ -52,9 +52,20 @@ const socials = [
 
     <!-- Bottom row: copyright + socials -->
     <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-      <p class="text-xs text-white/30">
-        © {new Date().getFullYear()} Ayverson. Todos los derechos reservados.
-      </p>
+      <div class="flex flex-col items-center gap-1 sm:items-start">
+        <p class="text-xs text-white/30">
+          © {new Date().getFullYear()} Ayverson. Todos los derechos reservados.
+        </p>
+        <p class="text-xs text-white/20">
+          Desarrollado por{" "}
+          <a
+            href="mailto:davidsilvac131@gmail.com"
+            class="text-white/35 transition-colors duration-200 hover:text-violet-300"
+          >
+            David Silva
+          </a>
+        </p>
+      </div>
 
       <!-- Social icons -->
       <ul class="flex items-center gap-4" role="list" aria-label="Redes sociales">
