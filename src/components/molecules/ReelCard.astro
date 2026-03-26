@@ -1,21 +1,24 @@
 ---
-// Molecule — vertical 9:16 embed card for Reels (TikTok / YouTube Shorts)
+// Molecule — vertical 9:16 embed card for Reels (TikTok / YouTube Shorts / Local)
 interface Props {
-  videoId: string
+  videoId?: string
+  localSrc?: string
   title: string
-  platform: 'tiktok' | 'youtube-shorts'
+  platform: 'tiktok' | 'youtube-shorts' | 'local'
   client?: string
 }
 
-const { videoId, title, platform, client } = Astro.props
+const { videoId, localSrc, title, platform, client } = Astro.props
 
 // TikTok embed uses their own embed URL; YouTube Shorts uses the standard embed
 const embedUrl =
   platform === 'tiktok'
     ? `https://www.tiktok.com/embed/v2/${videoId}`
-    : `https://www.youtube.com/embed/${videoId}`
+    : platform === 'youtube-shorts'
+    ? `https://www.youtube.com/embed/${videoId}`
+    : undefined
 
-const meta = {
+const metaMap = {
   tiktok: {
     label:       'TikTok',
     accentClass: 'via-cyan-400/50',
@@ -32,7 +35,16 @@ const meta = {
     dotColor:    'bg-red-500 shadow-[0_0_6px_#ef4444]',
     icon: `<svg viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5 text-red-400" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>`,
   },
-}[platform]
+  local: {
+    label:       'Local',
+    accentClass: 'via-violet-400/50',
+    borderHover: 'hover:border-violet-500/25',
+    shadowHover: 'hover:shadow-violet-500/8',
+    dotColor:    'bg-violet-400 shadow-[0_0_6px_#a78bfa]',
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-3.5 w-3.5 text-violet-400" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+  },
+}
+const meta = metaMap[platform]
 ---
 
 <article
@@ -41,16 +53,26 @@ const meta = {
   <!-- Platform accent line -->
   <div aria-hidden="true" class={`h-px w-full bg-linear-to-r from-transparent ${meta.accentClass} to-transparent`}></div>
 
-  <!-- 9:16 iframe embed -->
+  <!-- 9:16 embed or local video -->
   <div class="relative aspect-9/16 bg-black">
-    <iframe
-      src={embedUrl}
-      title={title}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      loading="lazy"
-      class="absolute inset-0 h-full w-full"
-    ></iframe>
+    {localSrc ? (
+      <video
+        src={localSrc}
+        title={title}
+        controls
+        preload="metadata"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    ) : (
+      <iframe
+        src={embedUrl}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        class="absolute inset-0 h-full w-full"
+      ></iframe>
+    )}
   </div>
 
   <!-- Footer bar -->

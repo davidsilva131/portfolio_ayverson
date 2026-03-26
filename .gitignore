@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# large video files – upload via Cloudinary instead
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.avi
+public/videos/*.mkv
+public/videos/*.webm
+
+.env.local

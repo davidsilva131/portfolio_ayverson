@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
   headers: {
       "Content-Security-Policy":
-        "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; frame-src https://www.youtube.com https://www.tiktok.com; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+        "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com https://res.cloudinary.com; media-src 'self' https://res.cloudinary.com; frame-src https://www.youtube.com https://www.tiktok.com; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
       "X-Frame-Options": "SAMEORIGIN",
       "X-Content-Type-Options": "nosniff",
       "Referrer-Policy": "strict-origin-when-cross-origin",

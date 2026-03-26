@@ -4,19 +4,34 @@ import Badge from "../atoms/Badge.astro"
 import YoutubeVideoCard from "../molecules/YoutubeVideoCard.astro"
 import ReelCard from "../molecules/ReelCard.astro"
 
-// ── Replace videoId values with your actual video IDs ──
+// ── Video data — use videoId for YouTube/TikTok or localSrc for files in public/videos/ ──
 const youtubeVideos = [
-  { videoId: 'dQw4w9WgXcQ', title: 'Highlights Reel — Botti',        client: 'Botti',     category: 'Highlights' },
-  { videoId: 'dQw4w9WgXcQ', title: 'Montage Gaming — JustVisa',       client: 'JustVisa',  category: 'Gaming'     }
+  { videoId: 'JroZMa8zbcc',  title: 'SI PARPADEO EN LA VIDA REAL, ¡MUERO!',     client: 'Botti',    category: 'Gaming' },
+  { videoId: '--1KlgRCRqI',  title: 'En esta partida sacaron lo peor de mi — JustVisa', client: 'JustVisa', category: 'Gaming' },
+  // Local examples — uncomment and set the correct filename:
+  // { localSrc: '/videos/BA BA BAD JUSTVISA.mp4',          title: 'BA BA BAD',             client: 'JustVisa', category: 'Edit'   },
+  // { localSrc: '/videos/JaviHero.mp4',                    title: 'JaviHero',              client: 'Personal', category: 'Edit'   },
+  // { localSrc: '/videos/JustVisa Video Auto-tune.mp4',    title: 'Auto-tune Edit',        client: 'JustVisa', category: 'Edit'   },
+  // { localSrc: '/videos/KRÜ.mp4',                         title: 'KRÜ',                   client: 'KRÜ',      category: 'Edit'   },
+  // { localSrc: '/videos/que mas quieren de miiiii.mp4',   title: 'Que Más Quieren',       client: 'Personal', category: 'Edit'   },
+  // { localSrc: '/videos/Sbreath.mp4',                     title: 'Sbreath',               client: 'Sbreath',  category: 'Edit'   },
+  // { localSrc: '/videos/TIMING PERFECTO.mp4',             title: 'Timing Perfecto',       client: 'Personal', category: 'Edit'   },
+  // { localSrc: '/videos/Unitiled 1.mp4',                  title: 'Untitled 1',            client: 'Personal', category: 'Edit'   },
 ]
 
 const reels = [
-  { videoId: 'TIKTOK_VIDEO_ID',    title: 'Transición viral',      platform: 'tiktok'           as const, client: 'Botti'    },
-  { videoId: 'YT_SHORTS_VIDEO_ID', title: 'Gaming quick cut',      platform: 'youtube-shorts'   as const, client: 'JustVisa' },
-  { videoId: 'TIKTOK_VIDEO_ID',    title: 'Efecto glitch neon',    platform: 'tiktok'           as const, client: 'iSBreath' },
-  { videoId: 'YT_SHORTS_VIDEO_ID', title: 'Product reveal',        platform: 'youtube-shorts'   as const, client: 'Personal' },
-  { videoId: 'TIKTOK_VIDEO_ID',    title: 'Color grading reel',    platform: 'tiktok'           as const, client: 'Botti'    },
-  { videoId: 'YT_SHORTS_VIDEO_ID', title: 'Trending audio edit',   platform: 'youtube-shorts'   as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774545486/portfolio/TIMING%20PERFECTO.mp4', title: 'Gameplay', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774544843/portfolio/JaviHero.mp4', title: 'Valorant Gameplay', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774545424/portfolio/que%20mas%20quieren%20de%20miiiii.mp4', title: 'Valorant Gameplay', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774545371/portfolio/JustVisa%20Video%20Auto-tune.mp4', title: 'Just Chatting', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774545251/portfolio/BA%20BA%20BAD%20JUSTVISA.mp4', title: 'Just Chatting', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774544849/portfolio/KR%C3%9C.mp4', title: 'Informativo', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774544857/portfolio/Sbreath.mp4', title: 'Gameplay', platform: 'local' as const, client: 'Personal' },
+  { localSrc: 'https://res.cloudinary.com/dwh6yph1x/video/upload/v1774545535/portfolio/Unitiled1.mp4', title: 'Gameplay', platform: 'local' as const, client: 'Personal' },
+
+
+
+  // { localSrc: '/videos/TIMING PERFECTO.mp4',           title: 'Timing Perfecto', platform: 'local' as const, client: 'Personal' },
 ]
 ---
 
@@ -51,20 +66,8 @@ const reels = [
       <div class="flex gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-sm">
 
         <button
-          data-tab="youtube"
-          data-active="true"
-          class="flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200
-                 text-white/45 hover:text-white/70
-                 data-[active=true]:bg-white/8 data-[active=true]:text-white data-[active=true]:border data-[active=true]:border-white/12 data-[active=true]:shadow-sm"
-        >
-          <svg class="h-3.5 w-3.5 text-red-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-          YouTube
-        </button>
-
-        <button
           data-tab="reels"
+          data-active="true"
           class="flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200
                  text-white/45 hover:text-white/70
                  data-[active=true]:bg-white/8 data-[active=true]:text-white data-[active=true]:border data-[active=true]:border-white/12 data-[active=true]:shadow-sm"
@@ -76,15 +79,28 @@ const reels = [
           Reels & Shorts
         </button>
 
+        <button
+          data-tab="youtube"
+          class="flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold transition-all duration-200
+                 text-white/45 hover:text-white/70
+                 data-[active=true]:bg-white/8 data-[active=true]:text-white data-[active=true]:border data-[active=true]:border-white/12 data-[active=true]:shadow-sm"
+        >
+          <svg class="h-3.5 w-3.5 text-red-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </button>
+
       </div>
     </div>
 
     <!-- ── YouTube panel ── -->
-    <div id="panel-youtube" data-panel="youtube">
+    <div id="panel-youtube" data-panel="youtube" class="hidden">
       <div class="grid gap-5 sm:grid-cols-2">
         {youtubeVideos.map(v => (
           <YoutubeVideoCard
-            videoId={v.videoId}
+            videoId={(v as any).videoId}
+            localSrc={(v as any).localSrc}
             title={v.title}
             client={v.client}
             category={v.category}
@@ -94,11 +110,12 @@ const reels = [
     </div>
 
     <!-- ── Reels panel ── -->
-    <div id="panel-reels" data-panel="reels" class="hidden">
-      <div class="grid gap-4 grid-cols-2 sm:grid-cols-3">
+    <div id="panel-reels" data-panel="reels">
+      <div class="flex flex-wrap justify-center gap-4 [&>*]:w-[calc(50%-0.5rem)] sm:[&>*]:w-[calc(33.333%-0.89rem)]">
         {reels.map(r => (
           <ReelCard
-            videoId={r.videoId}
+            videoId={(r as any).videoId}
+            localSrc={(r as any).localSrc}
             title={r.title}
             platform={r.platform}
             client={r.client}

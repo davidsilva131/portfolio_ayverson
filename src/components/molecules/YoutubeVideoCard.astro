@@ -1,14 +1,17 @@
 ---
 // Molecule — landscape YouTube embed card for portfolio grid
 interface Props {
-  videoId: string
+  videoId?: string
+  localSrc?: string
   title: string
   client?: string
   category?: string
 }
 
-const { videoId, title, client, category } = Astro.props
-const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&color=white`
+const { videoId, localSrc, title, client, category } = Astro.props
+const embedUrl = videoId
+  ? `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&color=white`
+  : undefined
 ---
 
 <article class="group relative rounded-2xl border border-white/8 bg-white/3 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-red-500/25 hover:shadow-2xl hover:shadow-red-500/8">
@@ -16,16 +19,26 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=
   <!-- Top accent line -->
   <div aria-hidden="true" class="h-px w-full bg-linear-to-r from-transparent via-red-500/45 to-transparent"></div>
 
-  <!-- 16:9 iframe embed -->
+  <!-- 16:9 embed or local video -->
   <div class="relative aspect-video bg-black">
-    <iframe
-      src={embedUrl}
-      title={title}
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      loading="lazy"
-      class="absolute inset-0 h-full w-full"
-    ></iframe>
+    {localSrc ? (
+      <video
+        src={localSrc}
+        title={title}
+        controls
+        preload="metadata"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    ) : (
+      <iframe
+        src={embedUrl}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        class="absolute inset-0 h-full w-full"
+      ></iframe>
+    )}
   </div>
 
   <!-- Footer bar -->
