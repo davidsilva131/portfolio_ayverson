@@ -3,11 +3,7 @@
 import Badge from "../atoms/Badge.astro"
 import FaqItem from "../molecules/FaqItem.astro"
 
-const faqs: Array<{
-  question: string
-  answer: string
-  parts?: Array<string | { bold: string }>
-}> = [
+const faqs = [
   {
     question: "¿Por qué debería confiar en ti?",
     answer:
@@ -20,23 +16,23 @@ const faqs: Array<{
   },
   {
     question: "¿Cuáles son tus métodos de pago?",
-    answer: "",
-    parts: ["Acepto pagos vía ", { bold: "Binance, PayPal y Zelle," }, " antes de realizar la edición."],
+    answer:
+      "Acepto pagos vía <strong>Binance, PayPal y Zelle,</strong> antes de realizar la edición.",
   },
   {
     question: "¿Puedo elegir los clips o tú los seleccionas?",
-    answer: "",
-    parts: ["Tú eliges: puedes mandarme el ", { bold: "archivo crudo" }, " o me encargo de buscar los mejores momentos."],
+    answer:
+      "Tú eliges: puedes mandarme el <strong>archivo crudo</strong> o me encargo de buscar los mejores momentos.",
   },
   {
     question: "¿Cuánto tiempo tardas en entregar?",
-    answer: "",
-    parts: ["Dependiendo del paquete, la entrega es de ", { bold: "24 a 72 horas" }, " después que se realice el pago correspondiente."],
+    answer:
+      "Dependiendo del paquete, la entrega es de <strong>24 a 72 horas</strong> después que se realice el pago correspondiente.",
   },
   {
     question: "¿Puedo pedir ajustes después de la entrega?",
-    answer: "",
-    parts: ["Sí, incluyo ", { bold: "3 revisiones gratuitas" }, " para asegurarme de que quedes satisfecho. Revisiones adicionales contienen un costo."],
+    answer:
+      "Sí, incluyo <strong>3 revisiones gratuitas</strong> para asegurarme de que quedes satisfecho. Revisiones adicionales contienen un costo.",
   },
   {
     question: "¿Puedo tener un paquete personalizado para mi contenido?",
@@ -80,7 +76,7 @@ const faqs: Array<{
     <!-- ── Accordion list ── -->
     <div>
       {faqs.map((faq) => (
-        <FaqItem question={faq.question} answer={faq.answer} parts={faq.parts} />
+        <FaqItem question={faq.question} answer={faq.answer} />
       ))}
     </div>
 

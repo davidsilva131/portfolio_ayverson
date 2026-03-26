@@ -63,6 +63,7 @@ const s = platformStyle[platform]
         width="44"
         height="44"
         class={`h-11 w-11 rounded-full object-cover ring-2 ring-white/10 transition-all duration-300 ${s.avatarRingHover}`}
+        onerror="this.style.visibility='hidden'"
       />
     </div>
     <div class="flex min-w-0 flex-col gap-0.5">
@@ -84,6 +85,7 @@ const s = platformStyle[platform]
       alt={`Arte de ${name}`}
       class="absolute inset-0 z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       loading="lazy"
+      onerror="this.remove()"
     />
   </div>
 </article>
