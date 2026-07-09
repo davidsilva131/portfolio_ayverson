@@ -1,15 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #050505;
-  --color-bg-surface: #0d0d0d;
-  --color-accent-violet: #6d28d9;
-  --color-accent-indigo: #3730a3;
-  --color-accent-cyan: #0e7490;
+  --color-bg-base: #000000;
+  --color-bg-surface: #000000;
+  --color-accent-mordao: #36004F;
+  --color-accent-mordao2: #340069;
+  --color-accent-azuldao: #002C69;
 }
 
 html,
 body {
   @apply min-h-screen m-0 p-0;
-  background: linear-gradient(135deg, #050510 0%, #0d0828 40%, #0a0a30 70%, #050520 100%) fixed;
+  background: #000000;
+}
+
+/* Full-page gradient overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(54, 0, 79, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(52, 0, 105, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 44, 105, 0.6) 0%, transparent 55%);
 }
