@@ -23,12 +23,13 @@ const embedUrl = videoId
   <div class="relative aspect-video bg-black">
     {localSrc ? (
       <video
-        src={localSrc}
         title={title}
         controls
         preload="metadata"
         class="absolute inset-0 h-full w-full object-cover"
-      />
+      >
+        <source src={localSrc} type="video/mp4" />
+      </video>
     ) : (
       <iframe
         src={embedUrl}

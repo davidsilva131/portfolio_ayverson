@@ -57,12 +57,13 @@ const meta = metaMap[platform]
   <div class="relative aspect-9/16 bg-black">
     {localSrc ? (
       <video
-        src={localSrc}
         title={title}
         controls
         preload="metadata"
         class="absolute inset-0 h-full w-full object-cover"
-      />
+      >
+        <source src={localSrc} type="video/mp4" />
+      </video>
     ) : (
       <iframe
         src={embedUrl}
