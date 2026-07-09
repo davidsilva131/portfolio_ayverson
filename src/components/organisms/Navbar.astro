@@ -2,13 +2,14 @@
 // Organism — full responsive navbar with glassmorphism and mobile drawer
 import Logo from "../atoms/Logo.astro"
 import NavLink from "../atoms/NavLink.astro"
+import LangToggle from "../atoms/LangToggle.astro"
 
 const links = [
-  { href: "#inicio",    label: "Inicio" },
-  { href: "#sobre-mi",  label: "Sobre mí" },
-  { href: "#clientes",  label: "Clientes" },
-  { href: "#videos",    label: "Videos" },
-  { href: "#preguntas", label: "Preguntas" },
+  { href: "#inicio",    label: "Inicio",    i18n: "nav.inicio" },
+  { href: "#sobre-mi",  label: "Sobre mí",  i18n: "nav.sobre-mi" },
+  { href: "#clientes",  label: "Clientes",  i18n: "nav.clientes" },
+  { href: "#videos",    label: "Videos",    i18n: "nav.videos" },
+  { href: "#preguntas", label: "Preguntas", i18n: "nav.preguntas" },
 ]
 ---
 
@@ -24,18 +25,20 @@ const links = [
 
     <!-- Desktop links (hidden on mobile) -->
     <ul class="hidden lg:flex items-center gap-8" role="list">
-      {links.map(({ href, label }) => (
+      {links.map(({ href, label, i18n }) => (
         <li>
-          <NavLink href={href} label={label} />
+          <NavLink href={href} label={label} dataI18n={i18n} />
         </li>
       ))}
     </ul>
 
-    <!-- Desktop CTA -->
-    <div class="hidden lg:block">
+    <!-- Desktop CTA + LangToggle -->
+    <div class="hidden lg:flex items-center gap-3">
+      <LangToggle />
       <button
         type="button"
         data-open-contact-modal
+        data-i18n="nav.contactame"
         class="relative inline-flex items-center gap-1.5 rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-2 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white hover:border-violet-400 hover:shadow-[0_0_18px_rgba(139,92,246,0.4)]"
       >
         Contáctame
@@ -48,6 +51,7 @@ const links = [
       type="button"
       aria-controls="mobile-menu"
       aria-expanded="false"
+      data-i18n-aria="nav.abrir-menu"
       aria-label="Abrir menú"
       class="lg:hidden flex flex-col gap-1.5 p-2 group"
     >
@@ -76,21 +80,24 @@ const links = [
       class="flex flex-col gap-1 px-5 pb-6 pt-2 border-t border-white/5"
       role="list"
     >
-      {links.map(({ href, label }) => (
+      {links.map(({ href, label, i18n }) => (
         <li>
           <a
             href={href}
+            data-i18n={i18n}
             class="mobile-link block py-3 text-sm font-medium tracking-widest uppercase text-white/60 transition-colors duration-200 hover:text-white border-b border-white/5"
           >
             {label}
           </a>
         </li>
       ))}
-      <li class="mt-4">
+      <li class="mt-4 flex items-center gap-3">
+        <LangToggle />
         <button
           type="button"
           data-open-contact-modal
-          class="mobile-link w-full flex items-center justify-center rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-3 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white"
+          data-i18n="nav.contactame"
+          class="mobile-link flex-1 flex items-center justify-center rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-3 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white"
         >
           Contáctame
         </button>

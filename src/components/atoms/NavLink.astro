@@ -4,14 +4,16 @@ interface Props {
   href: string
   label: string
   isButton?: boolean
+  dataI18n?: string
 }
 
-const { href, label, isButton = false } = Astro.props
+const { href, label, isButton = false, dataI18n } = Astro.props
 ---
 
 {isButton ? (
   <a
     href={href}
+    data-i18n={dataI18n}
     class="relative inline-flex items-center gap-1.5 rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-2 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white hover:border-violet-400 hover:shadow-[0_0_18px_rgba(139,92,246,0.4)]"
   >
     {label}
@@ -19,6 +21,7 @@ const { href, label, isButton = false } = Astro.props
 ) : (
   <a
     href={href}
+    data-i18n={dataI18n}
     class="group relative text-sm font-medium tracking-widest text-white/60 uppercase transition-colors duration-300 hover:text-white"
   >
     {label}

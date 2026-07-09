@@ -7,14 +7,16 @@ interface Props {
    *  Each entry is either a plain string or { bold: string }.
    */
   parts?: Array<string | { bold: string }>
+  i18nQuestion?: string
+  i18nAnswer?: string
 }
 
-const { question, answer, parts  } = Astro.props
+const { question, answer, parts, i18nQuestion, i18nAnswer } = Astro.props
 ---
 
 <details class="group border-b border-white/8 py-6 first:border-t">
   <summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-base font-semibold text-white/90 transition-colors duration-200 group-open:text-cyan-400 sm:text-lg">
-    {question}
+    <span data-i18n={i18nQuestion}>{question}</span>
     <span
       aria-hidden="true"
       class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 text-white/50 transition-all duration-200 group-open:border-cyan-400/30 group-open:text-cyan-400"
@@ -33,7 +35,7 @@ const { question, answer, parts  } = Astro.props
 
   <div class="mt-5 border-t border-white/8 pt-4 text-sm leading-relaxed text-white/55 sm:text-base">
     {parts ? (
-      <p>
+      <p data-i18n={i18nAnswer}>
         {parts.map((part) =>
           typeof part === 'string'
             ? part
@@ -41,6 +43,6 @@ const { question, answer, parts  } = Astro.props
         )}
       </p>
     ) : (
-      <p>{answer}</p>
+      <p data-i18n={i18nAnswer}>{answer}</p>
     )}  </div>
 </details>

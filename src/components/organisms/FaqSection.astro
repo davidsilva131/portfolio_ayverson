@@ -7,16 +7,22 @@ const faqs: Array<{
   question: string
   answer: string
   parts?: Array<string | { bold: string }>
+  i18nQ: string
+  i18nA: string
 }> = [
   {
     question: "¿Por qué debería confiar en ti?",
     answer:
       "Llevo más de 4 años editando contenido para creadores en TikTok, YouTube y Twitch. Cada proyecto lo trato con la misma dedicación y atención al detalle, y siempre estoy disponible para ajustar el resultado hasta que quedes 100% satisfecho.",
+    i18nQ: "faq.q1",
+    i18nA: "faq.a1",
   },
   {
     question: "¿Qué tipo de contenido editas?",
     answer:
       "Edito contenido vertical y horizontal: Shorts, Reels, TikToks, highlights de Twitch, podcasts editados y vlogs. Si tienes un formato específico en mente, cuéntame y lo evaluamos.",
+    i18nQ: "faq.q2",
+    i18nA: "faq.a2",
   },
   {
     question: "¿Cuáles son tus métodos de pago?",
@@ -26,6 +32,8 @@ const faqs: Array<{
       { bold: "Binance, PayPal y Zelle," },
       " antes de realizar la edición.",
     ],
+    i18nQ: "faq.q3",
+    i18nA: "faq.a3",
   },
   {
     question: "¿Puedo elegir los clips o tú los seleccionas?",
@@ -35,6 +43,8 @@ const faqs: Array<{
       { bold: "archivo crudo" },
       " o me encargo de buscar los mejores momentos.",
     ],
+    i18nQ: "faq.q4",
+    i18nA: "faq.a4",
   },
   {
     question: "¿Cuánto tiempo tardas en entregar?",
@@ -44,6 +54,8 @@ const faqs: Array<{
       { bold: "24 a 72 horas" },
       " después que se realice el pago correspondiente.",
     ],
+    i18nQ: "faq.q5",
+    i18nA: "faq.a5",
   },
   {
     question: "¿Puedo pedir ajustes después de la entrega?",
@@ -53,10 +65,14 @@ const faqs: Array<{
       { bold: "3 revisiones gratuitas" },
       " para asegurarme de que quedes satisfecho. Revisiones adicionales contienen un costo.",
     ],
+    i18nQ: "faq.q6",
+    i18nA: "faq.a6",
   },
   {
     question: "¿Puedo tener un paquete personalizado para mi contenido?",
     answer: "Sí, puedes crear tu propio paquete para tu contenido.",
+    i18nQ: "faq.q7",
+    i18nA: "faq.a7",
   },
 ]
 ---
@@ -83,12 +99,12 @@ const faqs: Array<{
 
     <!-- ── Section header ── -->
     <div class="mb-16 flex flex-col items-center gap-4 text-center">
-      <Badge label="FAQ" dot="violet" />
+      <Badge label="FAQ" dot="violet" dataI18n="faq.badge" />
       <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
-        <span class="text-white">Preguntas </span>
-        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">frecuentes</span>
+        <span class="text-white" data-i18n="faq.title_preguntas">Preguntas </span>
+        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent" data-i18n="faq.title_frecuentes">frecuentes</span>
       </h2>
-      <p class="max-w-md text-sm text-white/35 sm:text-base">
+      <p class="max-w-md text-sm text-white/35 sm:text-base" data-i18n="faq.subtitle">
         Todo lo que necesitas saber antes de empezar a trabajar conmigo.
       </p>
     </div>
@@ -96,7 +112,7 @@ const faqs: Array<{
     <!-- ── Accordion list ── -->
     <div class="rounded-2xl border border-white/5 bg-white/3 px-4 backdrop-blur-md sm:px-8">
       {faqs.map((faq) => (
-        <FaqItem question={faq.question} answer={faq.answer} parts={faq.parts} />
+        <FaqItem question={faq.question} answer={faq.answer} parts={faq.parts} i18nQuestion={faq.i18nQ} i18nAnswer={faq.i18nA} />
       ))}
     </div>
 

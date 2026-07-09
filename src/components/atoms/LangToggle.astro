@@ -1,0 +1,42 @@
+<button
+  class="lang-toggle relative inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-0.5 text-xs font-medium text-white/60 transition-colors duration-200 hover:border-white/20 hover:bg-white/8"
+  type="button"
+  aria-label="Toggle language"
+>
+  <span data-lang-option="es" class="rounded-full px-2.5 py-1 transition-all duration-200">ES</span>
+  <span data-lang-option="en" class="rounded-full px-2.5 py-1 transition-all duration-200">EN</span>
+</button>
+
+<script>
+  const STORAGE_KEY = "lang"
+
+  function getStored(): string {
+    return localStorage.getItem(STORAGE_KEY) || "es"
+  }
+
+  function setStored(lang: string): void {
+    localStorage.setItem(STORAGE_KEY, lang)
+  }
+
+  function highlight(lang: string): void {
+    document.querySelectorAll<HTMLElement>("[data-lang-option]").forEach((el) => {
+      const isActive = el.dataset.langOption === lang
+      el.classList.toggle("bg-white/10", isActive)
+      el.classList.toggle("text-white", isActive)
+      el.classList.toggle("text-white/40", !isActive)
+      el.classList.toggle("shadow-sm", isActive)
+    })
+  }
+
+  highlight(getStored())
+
+  document.querySelectorAll<HTMLElement>(".lang-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const current = getStored()
+      const next = current === "es" ? "en" : "es"
+      setStored(next)
+      highlight(next)
+      document.dispatchEvent(new CustomEvent("languagechange"))
+    })
+  })
+</script>

@@ -12,7 +12,7 @@ import Footer from "../components/organisms/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="en" class="overflow-x-hidden">
+<html lang="es" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +24,12 @@ import Footer from "../components/organisms/Footer.astro";
     <ParticleBackground />
 
     <Navbar />
+
+    <script>
+      import translations from "../i18n/translations"
+      import { initI18n } from "../i18n/client"
+      initI18n(translations)
+    </script>
 
     <main class="relative z-10">
       <HeroSection videoId="de12qz_ZDSg" />

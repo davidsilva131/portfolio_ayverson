@@ -45,13 +45,13 @@ const reels = [
 
     <!-- ── Section header ── -->
     <div class="mb-12 flex flex-col items-center gap-4 text-center">
-      <Badge label="Portafolio" dot="violet" />
+      <Badge label="Portafolio" dot="violet" dataI18n="videos.badge" />
       <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
-        <span class="text-white">Mi </span>
-        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent">trabajo</span>
-        <span class="text-white"> en acción</span>
+        <span class="text-white" data-i18n="videos.title_mi">Mi </span>
+        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-rose-400 bg-clip-text text-transparent" data-i18n="videos.title_trabajo">trabajo</span>
+        <span class="text-white" data-i18n="videos.title_accion"> en acción</span>
       </h2>
-      <p class="max-w-md text-sm text-white/35 sm:text-base">
+      <p class="max-w-md text-sm text-white/35 sm:text-base" data-i18n="videos.subtitle">
         Desde montajes cinematográficos hasta reels con ganchos impactantes.
         Cada frame editado con intención.
       </p>
@@ -72,7 +72,7 @@ const reels = [
             <rect x="7" y="2" width="10" height="20" rx="2"/>
             <line x1="12" y1="18" x2="12.01" y2="18"/>
           </svg>
-          Reels & Shorts
+          <span data-i18n="videos.tab_reels">Reels & Shorts</span>
         </button>
 
         <button
@@ -84,7 +84,7 @@ const reels = [
           <svg class="h-3.5 w-3.5 text-red-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
           </svg>
-          YouTube
+          <span data-i18n="videos.tab_youtube">YouTube</span>
         </button>
 
       </div>

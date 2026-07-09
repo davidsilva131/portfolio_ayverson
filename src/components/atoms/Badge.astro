@@ -4,9 +4,10 @@ interface Props {
   label: string
   dot?: 'green' | 'red' | 'violet' | 'none'
   size?: 'sm' | 'md'
+  dataI18n?: string
 }
 
-const { label, dot = 'green', size = 'md' } = Astro.props
+const { label, dot = 'green', size = 'md', dataI18n } = Astro.props
 
 const dotColors = {
   green:  'bg-emerald-400 shadow-[0_0_6px_#34d399]',
@@ -27,5 +28,5 @@ const sizes = {
   {dot !== 'none' && (
     <span class={`h-1.5 w-1.5 shrink-0 rounded-full ${dotColors[dot]}`}></span>
   )}
-  {label}
+  <span data-i18n={dataI18n}>{label}</span>
 </span>

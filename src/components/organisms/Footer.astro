@@ -3,11 +3,11 @@
 import Logo from "../atoms/Logo.astro"
 
 const links = [
-  { href: "#inicio",    label: "Inicio" },
-  { href: "#sobre-mi",  label: "Sobre mí" },
-  { href: "#clientes",  label: "Clientes" },
-  { href: "#videos",    label: "Videos" },
-  { href: "#preguntas", label: "Preguntas" },
+  { href: "#inicio",    label: "Inicio",    i18n: "nav.inicio" },
+  { href: "#sobre-mi",  label: "Sobre mí",  i18n: "nav.sobre-mi" },
+  { href: "#clientes",  label: "Clientes",  i18n: "nav.clientes" },
+  { href: "#videos",    label: "Videos",    i18n: "nav.videos" },
+  { href: "#preguntas", label: "Preguntas", i18n: "nav.preguntas" },
 ]
 
 const socials = [
@@ -33,10 +33,11 @@ const socials = [
 
       <nav aria-label="Footer navigation">
         <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2" role="list">
-          {links.map(({ href, label }) => (
+          {links.map(({ href, label, i18n }) => (
             <li>
               <a
                 href={href}
+                data-i18n={i18n}
                 class="text-sm text-white/50 transition-colors duration-200 hover:text-violet-300"
               >
                 {label}
@@ -53,11 +54,11 @@ const socials = [
     <!-- Bottom row: copyright + socials -->
     <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
       <div class="flex flex-col items-center gap-1 sm:items-start">
-        <p class="text-xs text-white/30">
+        <p class="text-xs text-white/30" data-i18n="footer.copyright">
           © {new Date().getFullYear()} Ayverson. Todos los derechos reservados.
         </p>
         <p class="text-xs text-white/20">
-          Desarrollado por{" "}
+          <span data-i18n="footer.desarrollado">Desarrollado por</span>{" "}
           <a
             href="mailto:davidsilvac131@gmail.com"
             class="text-white/35 transition-colors duration-200 hover:text-violet-300"
@@ -68,7 +69,7 @@ const socials = [
       </div>
 
       <!-- Social icons -->
-      <ul class="flex items-center gap-4" role="list" aria-label="Redes sociales">
+      <ul class="flex items-center gap-4" role="list" data-i18n-aria="footer.redes" aria-label="Redes sociales">
         {socials.map(({ href, label, platform }) => (
           <li>
             <a

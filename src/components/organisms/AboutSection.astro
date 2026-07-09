@@ -29,13 +29,13 @@ import Badge from "../atoms/Badge.astro"
 
     <!-- ── Section header ── -->
     <div class="mb-16 flex flex-col items-center gap-4 text-center">
-      <Badge label="Sobre Mí" dot="violet" />
+      <Badge label="Sobre Mí" dot="violet" dataI18n="about.badge" />
       <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
-        <span class="text-white">El </span>
-        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent">editor</span>
-        <span class="text-white"> detrás del contenido</span>
+        <span class="text-white" data-i18n="about.title_el">El </span>
+        <span class="bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent" data-i18n="about.title_editor">editor</span>
+        <span class="text-white" data-i18n="about.title_detras"> detrás del contenido</span>
       </h2>
-      <p class="max-w-md text-sm text-white/35 sm:text-base">
+      <p class="max-w-md text-sm text-white/35 sm:text-base" data-i18n="about.subtitle">
         Conoce quién se encarga de llevar tus ideas a la pantalla.
       </p>
     </div>
@@ -50,14 +50,14 @@ import Badge from "../atoms/Badge.astro"
         <div class="group relative flex flex-1 flex-col justify-center rounded-2xl border border-white/6 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 hover:border-violet-500/25 hover:bg-violet-500/5">
           <div class="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-linear-to-b from-violet-500 to-violet-400/30"></div>
           <p class="ps-1 text-base leading-relaxed text-white/65 sm:text-[1.05rem]">
-            ¡Hola! mi nombre es
+            <span data-i18n="about.p1_intro">¡Hola! mi nombre es</span>
             <span class="font-bold bg-linear-to-r from-violet-400 to-violet-300 bg-clip-text text-transparent"> Ayverson</span>,
-            soy un
-            <strong class="font-bold text-white"> editor de videos</strong>
-            especializado en el contenido vertical para
+            <span data-i18n="about.p1_soy">soy un</span>
+            <strong class="font-bold text-white" data-i18n="about.p1_editor"> editor de videos</strong>
+            <span data-i18n="about.p1_especializado"> especializado en el contenido vertical para </span>
             <strong class="font-bold text-white"> Shorts</strong>,
             <span class="font-bold bg-linear-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent"> Reels</span>
-            y
+            <span> y </span>
             <span class="font-bold bg-linear-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent"> TikTok</span>.
           </p>
         </div>
@@ -66,9 +66,9 @@ import Badge from "../atoms/Badge.astro"
         <div class="group relative flex flex-1 flex-col justify-center rounded-2xl border border-white/6 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 hover:border-cyan-500/25 hover:bg-cyan-500/5">
           <div class="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-linear-to-b from-cyan-500 to-cyan-400/30"></div>
           <p class="ps-1 text-base leading-relaxed text-white/65 sm:text-[1.05rem]">
-            Lo rápido y lo vertical están dominando las redes sociales y los videos cortos son la mejor estrategia para atraer público a tu
-            <strong class="font-bold text-white"> contenido principal</strong>,
-            ya bien sea a streams o videos horizontales.
+            <span data-i18n="about.p2_dominando">Lo rápido y lo vertical están dominando las redes sociales y los videos cortos son la mejor estrategia para atraer público a tu</span>
+            <strong class="font-bold text-white" data-i18n="about.p2_principal"> contenido principal</strong>
+            <span data-i18n="about.p2_bien">, ya bien sea a streams o videos horizontales.</span>
           </p>
         </div>
 
@@ -76,9 +76,9 @@ import Badge from "../atoms/Badge.astro"
         <div class="group relative flex flex-1 flex-col justify-center rounded-2xl border border-white/6 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/25 hover:bg-emerald-500/5">
           <div class="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-linear-to-b from-emerald-500 to-emerald-400/30"></div>
           <p class="ps-1 text-base leading-relaxed text-white/65 sm:text-[1.05rem]">
-            Me especializo en
-            <span class="font-bold bg-linear-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"> ediciones impactantes</span>,
-            con cortes precisos y efectos llamativos que puedan retener al espectador desde el primer segundo.
+            <span data-i18n="about.p3_especializo">Me especializo en</span>
+            <span class="font-bold bg-linear-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent" data-i18n="about.p3_impactantes"> ediciones impactantes</span>
+            <span data-i18n="about.p3_cortes">, con cortes precisos y efectos llamativos que puedan retener al espectador desde el primer segundo.</span>
           </p>
         </div>
 
@@ -86,11 +86,11 @@ import Badge from "../atoms/Badge.astro"
         <div class="group relative flex flex-1 flex-col justify-center rounded-2xl border border-white/6 bg-white/3 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-500/25 hover:bg-red-500/5">
           <div class="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-linear-to-b from-red-500 to-red-400/30"></div>
           <p class="ps-1 text-base leading-relaxed text-white/65 sm:text-[1.05rem]">
-            Aunque mi mayor experiencia es el contenido
-            <span class="font-bold bg-linear-to-r from-red-400 to-orange-400 bg-clip-text text-transparent"> Gaming</span>,
-            específicamente
-            <span class="font-bold bg-linear-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent"> Valorant</span>,
-            me puedo adaptar a cualquier tipo de contenido.
+            <span data-i18n="about.p4_aunque">Aunque mi mayor experiencia es el contenido</span>
+            <span class="font-bold bg-linear-to-r from-red-400 to-orange-400 bg-clip-text text-transparent" data-i18n="about.p4_gaming"> Gaming</span>
+            <span data-i18n="about.p4_especificamente">, específicamente</span>
+            <span class="font-bold bg-linear-to-r from-red-500 to-yellow-400 bg-clip-text text-transparent"> Valorant</span>
+            <span data-i18n="about.p4_adaptar">, me puedo adaptar a cualquier tipo de contenido.</span>
           </p>
         </div>
 
@@ -122,50 +122,50 @@ import Badge from "../atoms/Badge.astro"
           </div>
 
           <p class="text-lg font-bold text-white">Ayverson</p>
-          <p class="mt-1 text-sm text-white/45">Editor · Diseñador · Animador</p>
+          <p class="mt-1 text-sm text-white/45" data-i18n="about.role">Editor · Diseñador · Animador</p>
 
           <!-- Divider -->
           <div class="my-5 h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent"></div>
 
           <!-- Tiny skill tags -->
           <div class="flex flex-wrap justify-center gap-2">
-            <span class="rounded-full border border-violet-500/25 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-300">Editor de Videos</span>
-            <span class="rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-300">Diseñador Gráfico</span>
-            <span class="rounded-full border border-fuchsia-500/25 bg-fuchsia-500/10 px-3 py-1 text-xs font-semibold text-fuchsia-300">Animador</span>
+            <span class="rounded-full border border-violet-500/25 bg-violet-500/10 px-3 py-1 text-xs font-semibold text-violet-300" data-i18n="about.tag_editor">Editor de Videos</span>
+            <span class="rounded-full border border-cyan-500/25 bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-300" data-i18n="about.tag_disenador">Diseñador Gráfico</span>
+            <span class="rounded-full border border-fuchsia-500/25 bg-fuchsia-500/10 px-3 py-1 text-xs font-semibold text-fuchsia-300" data-i18n="about.tag_animador">Animador</span>
           </div>
         </div>
 
         <!-- Platforms card -->
         <div class="rounded-2xl border border-white/8 bg-white/3 p-6 backdrop-blur-md">
-          <h3 class="mb-4 text-xs font-bold uppercase tracking-widest text-white/35">Herramientas</h3>
+          <h3 class="mb-4 text-xs font-bold uppercase tracking-widest text-white/35" data-i18n="about.tools_title">Herramientas</h3>
           <div class="flex flex-col gap-2.5">
 
             <!-- Adobe Premiere -->
             <div class="flex items-center gap-3 rounded-xl border border-violet-500/20 bg-violet-500/8 px-4 py-3 transition-all duration-200 hover:border-violet-500/35 hover:bg-violet-500/12">
               <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(139,92,246,0.8)]"></span>
               <span class="text-sm font-semibold text-white/80">Adobe Premiere</span>
-              <span class="ms-auto text-xs text-white/25">edición</span>
+              <span class="ms-auto text-xs text-white/25" data-i18n="about.tool_edicion">edición</span>
             </div>
 
             <!-- After Effects -->
             <div class="flex items-center gap-3 rounded-xl border border-indigo-500/20 bg-indigo-500/8 px-4 py-3 transition-all duration-200 hover:border-indigo-500/35 hover:bg-indigo-500/12">
               <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.8)]"></span>
               <span class="text-sm font-semibold text-white/80">After Effects</span>
-              <span class="ms-auto text-xs text-white/25">animación</span>
+              <span class="ms-auto text-xs text-white/25" data-i18n="about.tool_animacion">animación</span>
             </div>
 
             <!-- Photoshop -->
             <div class="flex items-center gap-3 rounded-xl border border-cyan-500/20 bg-cyan-500/8 px-4 py-3 transition-all duration-200 hover:border-cyan-500/35 hover:bg-cyan-500/12">
               <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
               <span class="text-sm font-semibold text-white/80">Photoshop</span>
-              <span class="ms-auto text-xs text-white/25">diseño</span>
+              <span class="ms-auto text-xs text-white/25" data-i18n="about.tool_diseno">diseño</span>
             </div>
 
             <!-- Illustrator -->
             <div class="flex items-center gap-3 rounded-xl border border-orange-500/20 bg-orange-500/8 px-4 py-3 transition-all duration-200 hover:border-orange-500/35 hover:bg-orange-500/12">
               <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.8)]"></span>
               <span class="text-sm font-semibold text-white/80">Illustrator</span>
-              <span class="ms-auto text-xs text-white/25">vectores</span>
+              <span class="ms-auto text-xs text-white/25" data-i18n="about.tool_vectores">vectores</span>
             </div>
 
           </div>
@@ -177,7 +177,7 @@ import Badge from "../atoms/Badge.astro"
             aria-hidden="true"
             class="pointer-events-none absolute -right-6 -top-6 h-32 w-32 rounded-full bg-violet-600/20 blur-[50px]"
           ></div>
-          <h3 class="mb-4 text-xs font-bold uppercase tracking-widest text-white/35">Especialidades</h3>
+          <h3 class="mb-4 text-xs font-bold uppercase tracking-widest text-white/35" data-i18n="about.specs_title">Especialidades</h3>
           <div class="flex flex-col gap-3">
 
             <!-- Gaming -->
@@ -189,7 +189,7 @@ import Badge from "../atoms/Badge.astro"
               </div>
               <div>
                 <p class="font-bold text-white">Gaming</p>
-                <p class="text-xs text-white/40">Valorant y más</p>
+                <p class="text-xs text-white/40" data-i18n="about.spec_gaming_sub">Valorant y más</p>
               </div>
             </div>
 
@@ -203,7 +203,7 @@ import Badge from "../atoms/Badge.astro"
               </div>
               <div>
                 <p class="font-bold text-white">IRL</p>
-                <p class="text-xs text-white/40">Vida real y vlogs</p>
+                <p class="text-xs text-white/40" data-i18n="about.spec_irl_sub">Vida real y vlogs</p>
               </div>
             </div>
 
@@ -216,7 +216,7 @@ import Badge from "../atoms/Badge.astro"
               </div>
               <div>
                 <p class="font-bold text-white">Blogs</p>
-                <p class="text-xs text-white/40">Contenido informativo</p>
+                <p class="text-xs text-white/40" data-i18n="about.spec_blogs_sub">Contenido informativo</p>
               </div>
             </div>
 
