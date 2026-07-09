@@ -11,5 +11,5 @@
 html,
 body {
   @apply min-h-screen m-0 p-0;
-  background-color: var(--color-bg-base);
+  background: linear-gradient(135deg, #050510 0%, #0d0828 40%, #0a0a30 70%, #050520 100%) fixed;
 }
