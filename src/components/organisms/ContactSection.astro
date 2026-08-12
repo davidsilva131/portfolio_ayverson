@@ -1,26 +1,20 @@
 ---
-// Organism — "Contacto" section: big gradient headline + direct contact buttons
-import Badge from "../atoms/Badge.astro"
+// Organism — "Contacto" section: big left-aligned headline + direct contact buttons
 ---
 
 <section id="contacto" class="relative z-10 overflow-hidden py-28">
 
-  <!-- Dot grid texture -->
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[30px_30px]"
-  ></div>
-
   <div class="relative mx-auto w-full max-w-6xl px-5">
 
-    <!-- ── Section header ── -->
+    <!-- ── Section header (centered) ── -->
     <div class="reveal flex flex-col items-center gap-6 text-center">
-      <Badge label="Contacto" dot="violet" dataI18n="contact.badge" />
-
-      <h2 class="text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+      <h2 class="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
         <span class="block text-white" data-i18n="contact.line1">Tu próximo video</span>
-        <span class="block bg-linear-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent" data-i18n="contact.line2">comienza aquí</span>
+        <span class="block text-violet-400" data-i18n="contact.line2">comienza aquí</span>
       </h2>
+      <p class="max-w-md text-sm text-white/60 sm:text-base" data-i18n="contact.subtitle_section">
+        Disponible para nuevos proyectos. Elige tu canal favorito.
+      </p>
     </div>
 
     <!-- ── Contact buttons (same methods as the Contactame modal) ── -->
@@ -31,7 +25,7 @@ import Badge from "../atoms/Badge.astro"
         href="https://x.com/vfxayverson"
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex items-center gap-3.5 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/10"
+        class="group inline-flex items-center gap-3.5 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/40 hover:bg-violet-500/5"
       >
         <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-black ring-1 ring-white/15">
           <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -40,7 +34,7 @@ import Badge from "../atoms/Badge.astro"
         </span>
         <span class="text-left">
           <span class="block text-sm font-semibold text-white" data-i18n="contact.x_name">X (Twitter)</span>
-          <span class="block text-xs text-white/40">@vfxayverson</span>
+          <span class="block text-xs text-white/60">@vfxayverson</span>
         </span>
       </a>
 
@@ -49,7 +43,7 @@ import Badge from "../atoms/Badge.astro"
         href="https://www.instagram.com/ayversonvfx"
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex items-center gap-3.5 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-pink-500/40 hover:bg-pink-500/5"
+        class="group inline-flex items-center gap-3.5 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/40 hover:bg-violet-500/5"
       >
         <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-yellow-400 via-pink-500 to-purple-600">
           <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -58,7 +52,7 @@ import Badge from "../atoms/Badge.astro"
         </span>
         <span class="text-left">
           <span class="block text-sm font-semibold text-white" data-i18n="contact.ig_name">Instagram</span>
-          <span class="block text-xs text-white/40">@ayversonvfx</span>
+          <span class="block text-xs text-white/60">@ayversonvfx</span>
         </span>
       </a>
 
@@ -74,7 +68,7 @@ import Badge from "../atoms/Badge.astro"
         </span>
         <span class="text-left">
           <span class="block text-sm font-semibold text-white" data-i18n="contact.correo">Correo Electrónico</span>
-          <span class="block text-xs text-white/40">ayversonyaraure2015@gmail.com</span>
+          <span class="block text-xs text-white/60">ayversonyaraure2015@gmail.com</span>
         </span>
       </a>
 

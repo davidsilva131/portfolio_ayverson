@@ -1,5 +1,5 @@
 <button
-  class="lang-toggle relative inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 p-0.5 text-xs font-medium text-white/60 transition-colors duration-200 hover:border-white/20 hover:bg-white/8"
+  class="lang-toggle relative inline-flex cursor-pointer items-center gap-1 rounded-full border border-white/10 bg-white/5 p-0.5 text-xs font-medium text-white/60 transition-colors duration-200 hover:border-white/20 hover:bg-white/8"
   type="button"
   aria-label="Toggle language"
 >
@@ -23,7 +23,7 @@
       const isActive = el.dataset.langOption === lang
       el.classList.toggle("bg-white/10", isActive)
       el.classList.toggle("text-white", isActive)
-      el.classList.toggle("text-white/40", !isActive)
+      el.classList.toggle("text-white/60", !isActive)
       el.classList.toggle("shadow-sm", isActive)
     })
   }

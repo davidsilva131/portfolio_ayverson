@@ -1,8 +1,11 @@
+@import "@fontsource-variable/outfit";
 @import "tailwindcss";
 
 @theme {
-  --color-bg-base: #000000;
-  --color-bg-surface: #000000;
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg-base: #050505;
+  --color-bg-surface: #050505;
   --color-accent-mordao: #36004F;
   --color-accent-mordao2: #340069;
   --color-accent-azuldao: #002C69;
@@ -11,10 +14,10 @@
 html,
 body {
   @apply min-h-screen m-0 p-0;
-  background: #000000;
+  background: #050505;
 }
 
-/* Full-page gradient overlay */
+/* Full-page gradient overlay — restrained violet family only */
 body::before {
   content: "";
   position: fixed;
@@ -22,9 +25,9 @@ body::before {
   pointer-events: none;
   z-index: 1;
   background:
-    radial-gradient(ellipse at 20% 0%, rgba(54, 0, 79, 0.6) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 30%, rgba(52, 0, 105, 0.6) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 100%, rgba(0, 44, 105, 0.6) 0%, transparent 55%);
+    radial-gradient(ellipse at 20% 0%, rgba(54, 0, 79, 0.45) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(52, 0, 105, 0.4) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 100%, rgba(0, 44, 105, 0.4) 0%, transparent 55%);
 }
 
 /* ── Scroll reveal initial state ─────────────────────────────────
@@ -44,6 +47,12 @@ body::before {
    spacing scale. */
 :where(section[id], [data-anchor-target]) {
   scroll-margin-top: 5rem; /* 80px — navbar height + breathing room */
+}
+
+/* Keyboard focus — one visible ring for every interactive element. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
 }
 
 /* No-JS fallback: content must never stay hidden. */

@@ -1,5 +1,8 @@
 ---
-// Molecule — Contact modal with social network links and email
+// Molecule — Contact modal with social network links and email.
+// Keyboard: focus is trapped inside while open, initial focus goes to
+// the panel, and focus returns to the opener on close. Background
+// (header/main/footer) is inert while the modal is open.
 ---
 
 <div
@@ -16,7 +19,11 @@
   ></div>
 
   <!-- Panel -->
-  <div class="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 shadow-2xl shadow-black/50">
+  <div
+    id="contact-modal-panel"
+    tabindex="-1"
+    class="relative w-full max-w-md rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 shadow-2xl shadow-black/50"
+  >
 
     <!-- Close button -->
     <button
@@ -24,7 +31,7 @@
       type="button"
       data-i18n-aria="contact.close"
       aria-label="Cerrar modal"
-      class="absolute right-4 top-4 rounded-full p-2 text-white/40 transition-colors duration-200 hover:bg-white/10 hover:text-white"
+      class="absolute right-4 top-4 cursor-pointer rounded-full p-2 text-white/40 transition-colors duration-200 hover:bg-white/10 hover:text-white"
     >
       <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -33,13 +40,13 @@
 
     <!-- Header -->
     <div class="mb-8 text-center">
-      <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-violet-600 to-indigo-600 shadow-[0_0_24px_rgba(139,92,246,0.4)]">
+      <div class="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-violet-600 to-indigo-600">
         <svg class="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
         </svg>
       </div>
       <h2 id="contact-modal-title" class="text-2xl font-bold text-white" data-i18n="contact.title">¡Hablemos!</h2>
-      <p class="mt-1.5 text-sm text-white/45" data-i18n="contact.subtitle">Elige por dónde quieres contactarme</p>
+      <p class="mt-1.5 text-sm text-white/60" data-i18n="contact.subtitle">Elige por dónde quieres contactarme</p>
     </div>
 
     <!-- Social links -->
@@ -50,7 +57,7 @@
         href="https://x.com/vfxayverson"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-white/20 hover:bg-white/8"
+        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-violet-500/30 hover:bg-violet-500/5"
       >
         <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-black ring-1 ring-white/15">
           <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -59,9 +66,9 @@
         </span>
         <div class="min-w-0">
           <p class="text-sm font-semibold text-white">X (Twitter)</p>
-          <p class="text-xs text-white/40">@vfxayverson</p>
+          <p class="text-xs text-white/60">@vfxayverson</p>
         </div>
-        <svg class="ms-auto h-4 w-4 shrink-0 text-white/20 transition-all duration-200 group-hover:translate-x-1 group-hover:text-white/60" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <svg class="ms-auto h-4 w-4 shrink-0 text-white/40 transition-all duration-200 group-hover:translate-x-1 group-hover:text-violet-400/80" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>
       </a>
@@ -71,18 +78,18 @@
         href="https://www.instagram.com/ayversonvfx"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-pink-500/30 hover:bg-pink-500/5"
+        class="group flex items-center gap-4 rounded-xl border border-white/8 bg-white/4 px-5 py-4 transition-all duration-200 hover:border-violet-500/30 hover:bg-violet-500/5"
       >
         <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-yellow-400 via-pink-500 to-purple-600">
           <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
         </span>
         <div class="min-w-0">
           <p class="text-sm font-semibold text-white">Instagram</p>
-          <p class="text-xs text-white/40">@ayversonvfx</p>
+          <p class="text-xs text-white/60">@ayversonvfx</p>
         </div>
-        <svg class="ms-auto h-4 w-4 shrink-0 text-white/20 transition-all duration-200 group-hover:translate-x-1 group-hover:text-pink-400/60" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <svg class="ms-auto h-4 w-4 shrink-0 text-white/40 transition-all duration-200 group-hover:translate-x-1 group-hover:text-violet-400/80" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>
       </a>
@@ -99,9 +106,9 @@
         </span>
         <div class="min-w-0">
           <p class="text-sm font-semibold text-white" data-i18n="contact.correo">Correo Electrónico</p>
-          <p class="truncate text-xs text-white/40">ayversonyaraure2015@gmail.com</p>
+          <p class="truncate text-xs text-white/60">ayversonyaraure2015@gmail.com</p>
         </div>
-        <svg class="ms-auto h-4 w-4 shrink-0 text-white/20 transition-all duration-200 group-hover:translate-x-1 group-hover:text-violet-400/60" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+        <svg class="ms-auto h-4 w-4 shrink-0 text-white/40 transition-all duration-200 group-hover:translate-x-1 group-hover:text-violet-400/80" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
         </svg>
       </a>
@@ -112,21 +119,53 @@
 
 <script>
   const modal     = document.getElementById('contact-modal')!
+  const panel     = document.getElementById('contact-modal-panel')!
   const backdrop  = document.getElementById('contact-modal-backdrop')!
   const closeBtn  = document.getElementById('close-contact-modal')!
   const openBtns  = document.querySelectorAll('[data-open-contact-modal]')
 
+  let lastFocused: HTMLElement | null = null
+
+  function setBackgroundInert(inert: boolean) {
+    document.querySelectorAll('header, main, footer').forEach((el) => {
+      ;(el as HTMLElement).inert = inert
+    })
+  }
+
   function openModal() {
+    lastFocused = document.activeElement as HTMLElement | null
     modal.classList.remove('pointer-events-none', 'opacity-0')
     modal.classList.add('pointer-events-auto', 'opacity-100')
     document.body.style.overflow = 'hidden'
+    setBackgroundInert(true)
+    panel.focus({ preventScroll: true })
   }
 
   function closeModal() {
     modal.classList.add('pointer-events-none', 'opacity-0')
     modal.classList.remove('pointer-events-auto', 'opacity-100')
     document.body.style.overflow = ''
+    setBackgroundInert(false)
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus({ preventScroll: true })
+    }
   }
+
+  // Trap Tab/Shift+Tab inside the modal
+  modal.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return
+    const focusables = modal.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')
+    if (!focusables.length) return
+    const first = focusables[0]
+    const last = focusables[focusables.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
+  })
 
   openBtns.forEach(btn => btn.addEventListener('click', openModal))
   closeBtn.addEventListener('click', closeModal)

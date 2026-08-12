@@ -26,21 +26,18 @@ const translations: Translations = {
   "hero.line3_y":         { es: " y ",            en: " and " },
   "hero.line3_animaciones": { es: "animaciones",  en: "animations" },
   "hero.line3_unicas":    { es: " únicas",        en: " unique" },
-  "hero.cta_esperas":     { es: "¿QUE ESPERAS?",  en: "WHAT ARE YOU WAITING FOR?" },
-  "hero.cta_nivel":       { es: "¡LLEVEMOS TU CONTENIDO AL SIGUIENTE NIVEL!", en: "LET'S TAKE YOUR CONTENT TO THE NEXT LEVEL!" },
-  "hero.btn_trabajemos":  { es: "¡Trabajemos Juntos!", en: "Let's Work Together!" },
+  "hero.subtitle":        { es: "Edición con ritmo, efectos y motion para creadores que quieren destacar.", en: "Video editing with rhythm, effects and motion for creators who want to stand out." },
+  "hero.btn_contactame":  { es: "Contáctame",    en: "Contact Me" },
   "hero.btn_ver_trabajo": { es: "Ver mi trabajo", en: "See My Work" },
   "hero.video_destacado": { es: "Video destacado por el editor", en: "Editor's featured video" },
 
   // ── Clients ──
-  "clients.badge":        { es: "Clientes",         en: "Clients" },
   "clients.title_creadores": { es: "Creadores que ", en: "Creators who " },
   "clients.title_confian":   { es: "confían",       en: "trust" },
   "clients.title_en_mi":     { es: " en mí",        en: " me" },
   "clients.subtitle":     { es: "Algunos de los creadores para quienes he editado contenido de alto impacto.", en: "Some of the creators I've edited high-impact content for." },
 
   // ── Videos ──
-  "videos.badge":         { es: "Portafolio",       en: "Portfolio" },
   "videos.title_mi":      { es: "Mi ",              en: "My " },
   "videos.title_trabajo": { es: "trabajo",          en: "work" },
   "videos.title_accion":  { es: " en acción",       en: " in action" },
@@ -58,7 +55,7 @@ const translations: Translations = {
   "contact.subtitle":     { es: "Elige por dónde quieres contactarme", en: "Choose how you want to reach me" },
   "contact.close":        { es: "Cerrar modal",     en: "Close modal" },
   "contact.correo":       { es: "Correo Electrónico", en: "Email" },
-  "contact.badge":        { es: "Contacto",         en: "Contact" },
+  "contact.subtitle_section": { es: "Disponible para nuevos proyectos. Elige tu canal favorito.", en: "Available for new projects. Pick your favorite channel." },
   "contact.line1":        { es: "Tu próximo video", en: "Your next video" },
   "contact.line2":        { es: "comienza aquí",    en: "starts here" },
   "contact.x_name":       { es: "X (Twitter)",      en: "X (Twitter)" },
@@ -67,14 +64,9 @@ const translations: Translations = {
   // ── Video Card ──
   "videocard.featured":   { es: "DESTACADO",        en: "FEATURED" },
   "videocard.mirar":      { es: "Mirar en YouTube", en: "Watch on YouTube" },
-  "videocard.en_vivo":    { es: "En vivo",          en: "Live" },
 
   // ── Platform Badge ──
   "platform.suscriptores":{ es: "suscriptores",     en: "subscribers" },
-
-  // ── Star Rating ──
-  "stars.label":          { es: "Reseñas 5/5",      en: "Reviews 5/5" },
-  "stars.aria":           { es: "{rating} de {max} estrellas", en: "{rating} out of {max} stars" },
 }
 
 export default translations

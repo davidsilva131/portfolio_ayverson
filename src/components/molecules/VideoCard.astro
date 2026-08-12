@@ -1,7 +1,6 @@
 ---
-// Molecule — featured YouTube video card with glassmorphism and glow border
+// Molecule — featured YouTube video card with glassmorphism and tinted shadow
 import Badge from "../atoms/Badge.astro"
-import StarRating from "../atoms/StarRating.astro"
 
 interface Props {
   videoId: string
@@ -10,26 +9,16 @@ interface Props {
 
 const { videoId, title = "Video destacado" } = Astro.props
 const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&color=white`
+const watchUrl = `https://www.youtube.com/watch?v=${videoId}`
 ---
 
 <div class="relative">
-  <!-- Outer glow halo -->
-  <div
-    aria-hidden="true"
-    class="absolute -inset-6 rounded-3xl bg-violet-600/25 blur-3xl"
-  ></div>
-  <div
-    aria-hidden="true"
-    class="absolute -inset-3 rounded-2xl bg-indigo-500/10 blur-xl"
-  ></div>
-
-  <!-- Glass card -->
-  <div class="relative rounded-2xl border border-white/10 bg-white/4 shadow-2xl shadow-black/60 backdrop-blur-sm overflow-hidden">
+  <!-- Glass card with soft violet-tinted shadow -->
+  <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/4 shadow-[0_24px_60px_-24px_rgba(139,92,246,0.4)] backdrop-blur-sm">
 
     <!-- Top bar -->
     <div class="flex items-center justify-between px-4 py-3 border-b border-white/5">
-      <Badge label="DESTACADO" dot="red" size="sm" dataI18n="videocard.featured" />
-      <StarRating />
+      <Badge label="DESTACADO" size="sm" dataI18n="videocard.featured" />
     </div>
 
     <!-- Video embed -->
@@ -50,13 +39,15 @@ const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=
       <svg class="h-4 w-auto text-red-500" viewBox="0 0 90 20" fill="currentColor" aria-hidden="true">
         <path d="M27.97 3.68a3.27 3.27 0 0 0-2.3-2.31C23.56.8 14.75.8 14.75.8s-8.8 0-10.92.57A3.27 3.27 0 0 0 1.53 3.68C.97 5.8.97 10.2.97 10.2s0 4.4.56 6.52a3.27 3.27 0 0 0 2.3 2.3c2.12.57 10.92.57 10.92.57s8.81 0 10.92-.57a3.27 3.27 0 0 0 2.3-2.3c.57-2.12.57-6.52.57-6.52s0-4.4-.57-6.52zM11.75 14.08V6.32l7.3 3.88-7.3 3.88z"/>
       </svg>
-      <span class="text-xs text-white/40 font-medium tracking-wide" data-i18n="videocard.mirar">Mirar en YouTube</span>
-
-      <!-- Dot separator -->
-      <span class="ms-auto flex items-center gap-1.5 text-xs text-white/25">
-        <span class="inline-block h-1 w-1 rounded-full bg-emerald-400"></span>
-        <span data-i18n="videocard.en_vivo">En vivo</span>
-      </span>
+      <a
+        href={watchUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-xs font-medium tracking-wide text-white/60 transition-colors duration-200 hover:text-white"
+        data-i18n="videocard.mirar"
+      >
+        Mirar en YouTube
+      </a>
     </div>
   </div>
 </div>

@@ -38,7 +38,7 @@ const links = [
         type="button"
         data-open-contact-modal
         data-i18n="nav.contactame"
-        class="relative inline-flex items-center gap-1.5 rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-2 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white hover:border-violet-400 hover:shadow-[0_0_18px_rgba(139,92,246,0.4)]"
+        class="relative inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-2 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white hover:border-violet-400"
       >
         Contáctame
       </button>
@@ -52,7 +52,7 @@ const links = [
       aria-expanded="false"
       data-i18n-aria="nav.abrir-menu"
       aria-label="Abrir menú"
-      class="lg:hidden flex flex-col gap-1.5 p-2 group"
+      class="lg:hidden flex cursor-pointer flex-col gap-1.5 p-2 group"
     >
       <span
         id="bar1"
@@ -84,7 +84,7 @@ const links = [
           <a
             href={href}
             data-i18n={i18n}
-            class="mobile-link block py-3 text-sm font-medium tracking-widest uppercase text-white/60 transition-colors duration-200 hover:text-white border-b border-white/5"
+            class="mobile-link block py-3 text-sm font-medium tracking-widest uppercase text-white/70 transition-colors duration-200 hover:text-white border-b border-white/5"
           >
             {label}
           </a>
@@ -96,7 +96,7 @@ const links = [
           type="button"
           data-open-contact-modal
           data-i18n="nav.contactame"
-          class="mobile-link flex-1 flex items-center justify-center rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-3 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white"
+          class="mobile-link flex-1 flex cursor-pointer items-center justify-center rounded-full border border-violet-500/60 bg-violet-600/10 px-5 py-3 text-sm font-semibold tracking-wide text-violet-300 transition-all duration-300 hover:bg-violet-500/25 hover:text-white"
         >
           Contáctame
         </button>
