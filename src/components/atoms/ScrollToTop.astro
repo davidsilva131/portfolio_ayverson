@@ -1,0 +1,42 @@
+---
+// Atom — floating "back to top" button (bottom-right).
+// Appears only after the user scrolls past a threshold;
+// smooth-scrolls to the top on click. Hidden state is pure CSS
+// (opacity/translate), so it's invisible without JS.
+---
+
+<button
+  id="scroll-to-top"
+  type="button"
+  data-i18n-aria="nav.volver-arriba"
+  aria-label="Volver arriba"
+  aria-hidden="true"
+  tabindex="-1"
+  class="pointer-events-none fixed bottom-6 right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-violet-500/60 bg-violet-600/10 text-violet-300 opacity-0 translate-y-3 backdrop-blur-md transition-all duration-300 hover:border-violet-400 hover:bg-violet-500/25 hover:text-white hover:shadow-[0_0_18px_rgba(139,92,246,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400"
+>
+  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
+  </svg>
+</button>
+
+<script>
+  const btn = document.getElementById("scroll-to-top")!
+  const SHOW_AFTER = 400 // px of scroll before the button appears
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
+  function update() {
+    const show = window.scrollY > SHOW_AFTER
+    btn.classList.toggle("pointer-events-none", !show)
+    btn.classList.toggle("opacity-0", !show)
+    btn.classList.toggle("translate-y-3", !show)
+    btn.setAttribute("aria-hidden", String(!show))
+    btn.tabIndex = show ? 0 : -1
+  }
+
+  window.addEventListener("scroll", update, { passive: true })
+  update()
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" })
+  })
+</script>

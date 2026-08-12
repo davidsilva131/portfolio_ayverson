@@ -13,6 +13,7 @@ const translations: Translations = {
   "nav.abrir-menu":       { es: "Abrir menú",     en: "Open menu" },
   "nav.navegacion":       { es: "Navegación principal", en: "Main navigation" },
   "footer.navegacion":    { es: "Footer navigation",    en: "Footer navigation" },
+  "nav.volver-arriba":    { es: "Volver arriba",        en: "Back to top" },
 
   // ── Hero ──
   "hero.badge":           { es: "Editor Profesional de Videos", en: "Professional Video Editor" },
