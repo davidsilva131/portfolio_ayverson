@@ -20,6 +20,11 @@ const socials = [
     href: "https://x.com/vfxayverson",
     platform: "twitter" as const,
   },
+  {
+    label: "Correo electrónico",
+    href: "mailto:ayversonyaraure2015@gmail.com",
+    platform: "email" as const,
+  },
 ]
 ---
 
@@ -74,8 +79,8 @@ const socials = [
             <a
               href={href}
               aria-label={label}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={platform === 'email' ? undefined : '_blank'}
+              rel={platform === 'email' ? undefined : 'noopener noreferrer'}
               class="flex items-center justify-center text-white/55 transition-all duration-200 hover:text-violet-300"
             >
               {platform === 'instagram' && (
@@ -86,6 +91,11 @@ const socials = [
               {platform === 'twitter' && (
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="size-5">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              )}
+              {platform === 'email' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" class="size-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
                 </svg>
               )}
             </a>

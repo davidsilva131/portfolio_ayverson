@@ -18,7 +18,7 @@ const translations: Translations = {
   "hero.badge":           { es: "Editor de Video & Motion Designer", en: "Video Editor and Motion Designer" },
   "hero.line1":           { es: "El detalle está", en: "The detail is" },
   "hero.line2":           { es: "en cada corte.",   en: "in every cut." },
-  "hero.subtitle":        { es: "Potenciando tu contenido con ediciones creativas y efectos únicos.", en: "Video editing with rhythm, effects and motion for creators who want to stand out." },
+  "hero.subtitle":        { es: "Potenciando tu contenido con ediciones creativas y efectos únicos.", en: "Elevating your content with creative editing and unique effects." },
   "hero.btn_contactame":  { es: "Contáctame",    en: "Contact Me" },
   "hero.btn_ver_trabajo": { es: "Ver mi trabajo", en: "See My Work" },
 
