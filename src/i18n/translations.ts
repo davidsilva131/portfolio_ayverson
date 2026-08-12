@@ -7,6 +7,7 @@ const translations: Translations = {
   "nav.inicio":           { es: "Inicio",         en: "Home" },
   "nav.clientes":         { es: "Clientes",       en: "Clients" },
   "nav.videos":           { es: "Videos",         en: "Videos" },
+  "nav.contacto":         { es: "Contacto",       en: "Contact" },
   "nav.contactame":       { es: "Contáctame",     en: "Contact Me" },
   "nav.abrir-menu":       { es: "Abrir menú",     en: "Open menu" },
   "nav.navegacion":       { es: "Navegación principal", en: "Main navigation" },
@@ -57,6 +58,11 @@ const translations: Translations = {
   "contact.subtitle":     { es: "Elige por dónde quieres contactarme", en: "Choose how you want to reach me" },
   "contact.close":        { es: "Cerrar modal",     en: "Close modal" },
   "contact.correo":       { es: "Correo Electrónico", en: "Email" },
+  "contact.badge":        { es: "Contacto",         en: "Contact" },
+  "contact.line1":        { es: "Tu próximo video", en: "Your next video" },
+  "contact.line2":        { es: "comienza aquí",    en: "starts here" },
+  "contact.x_name":       { es: "X (Twitter)",      en: "X (Twitter)" },
+  "contact.ig_name":      { es: "Instagram",        en: "Instagram" },
 
   // ── Video Card ──
   "videocard.featured":   { es: "DESTACADO",        en: "FEATURED" },
