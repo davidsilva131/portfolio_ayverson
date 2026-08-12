@@ -9,6 +9,80 @@ import ParticleBackground from "../components/atoms/ParticleBackground.astro";
 import ScrollToTop from "../components/atoms/ScrollToTop.astro";
 import ContactModal from "../components/molecules/ContactModal.astro";
 import Footer from "../components/organisms/Footer.astro";
+import { youtubeVideos } from "../data/videos";
+
+const site = "https://portfolio-ayverson.pages.dev";
+const url = `${site}/`;
+const title = "VFX Ayverson — Editor de Video & Motion Designer";
+const description =
+  "Editor de video y motion designer para creadores y streamers. Reels, shorts y montajes cinematográficos con ritmo, efectos y motion.";
+
+// ── Structured data (JSON-LD) ──────────────────────────────────────────────
+// Entity graph: WebSite + ProfilePage + Person. Keep the copy in sync with
+// the visible sections — answer engines quote this.
+const graphJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${url}#website`,
+      url,
+      name: "VFX Ayverson",
+      description,
+      inLanguage: "es",
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${url}#profile`,
+      url,
+      name: title,
+      isPartOf: { "@id": `${url}#website` },
+      about: { "@id": `${url}#person` },
+      mainEntity: { "@id": `${url}#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${url}#person`,
+      name: "Ayverson",
+      alternateName: "VFX Ayverson",
+      url,
+      image: `${site}/creators/logo_ayvershit.png`,
+      jobTitle: "Editor de Video & Motion Designer",
+      description,
+      knowsAbout: [
+        "Edición de video",
+        "Motion graphics",
+        "VFX",
+        "Reels y Shorts",
+        "Montajes cinematográficos",
+      ],
+      sameAs: [
+        "https://x.com/vfxayverson",
+        "https://www.instagram.com/ayversonvfx",
+      ],
+      email: "mailto:ayversonyaraure2015@gmail.com",
+    },
+  ],
+});
+
+// Featured work — derived from the same data the Videos section renders.
+const workJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Trabajos destacados de VFX Ayverson",
+  itemListElement: youtubeVideos
+    .filter((v) => v.videoId)
+    .map((v, i) => ({
+      "@type": "VideoObject",
+      position: i + 1,
+      name: v.title,
+      description: `Edición de video para ${v.client} — ${v.category}.`,
+      thumbnailUrl: `https://i.ytimg.com/vi/${v.videoId}/hqdefault.jpg`,
+      embedUrl: `https://www.youtube.com/embed/${v.videoId}`,
+      // uploadDate omitted (unknown) — Google requires it for video rich
+      // results, but the schema stays valid for answer engines.
+    })),
+});
 ---
 
 <!doctype html>
@@ -16,22 +90,40 @@ import Footer from "../components/organisms/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VFX Ayverson</title>
-    <meta
-      name="description"
-      content="VFX Ayverson — editor de video profesional para creadores. Reels, shorts y montajes con ritmo, efectos y motion."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Ayverson" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#050505" />
+    <link rel="canonical" href={url} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/avif" href="/creators/logo_ayvershit.avif" />
+    <link rel="apple-touch-icon" href="/creators/logo_ayvershit.png" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="VFX Ayverson" />
-    <meta
-      property="og:description"
-      content="Editor de video profesional para creadores: reels, shorts y montajes cinematográficos."
-    />
-    <meta property="og:image" content="/creators/logo_ayvershit.png" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:site_name" content="VFX Ayverson" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${site}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${site}/og.png`} />
+
+    <!-- Structured data: WebSite + ProfilePage + Person -->
+    <script type="application/ld+json" set:html={graphJson}></script>
+    <!-- Structured data: featured work (ItemList of VideoObject) -->
+    <script type="application/ld+json" set:html={workJson}></script>
   </head>
   <body class="relative min-h-screen">
 

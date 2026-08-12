@@ -30,4 +30,7 @@ public/videos/*.avi
 public/videos/*.mkv
 public/videos/*.webm
 
+# intermediate variable font (static instances are committed)
+scripts/fonts/Outfit.ttf
+
 .env.local

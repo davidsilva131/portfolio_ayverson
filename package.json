@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "og": "node scripts/generate-og.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,7 +20,10 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@resvg/resvg-js": "^2.6.2",
     "cloudinary": "^2.9.0",
-    "dotenv": "^17.3.1"
+    "dotenv": "^17.3.1",
+    "satori": "^0.29.0"
   }
 }

@@ -2,32 +2,7 @@
 // Organism — Videos section: tabbed portfolio grid (YouTube landscape + Reels/Shorts vertical)
 import YoutubeVideoCard from "../molecules/YoutubeVideoCard.astro"
 import ReelCard from "../molecules/ReelCard.astro"
-
-// ── Video data — use videoId for YouTube/TikTok or localSrc for files in public/videos/ ──
-const youtubeVideos = [
-  { videoId: 'JroZMa8zbcc',  title: 'SI PARPADEO EN LA VIDA REAL, ¡MUERO!',     client: 'Botti',    category: 'Gaming' },
-  { videoId: '--1KlgRCRqI',  title: 'En esta partida sacaron lo peor de mi — JustVisa', client: 'JustVisa', category: 'Gaming' },
-  // Local examples — uncomment and set the correct filename:
-  // { localSrc: '/videos/BA BA BAD JUSTVISA.mp4',          title: 'BA BA BAD',             client: 'JustVisa', category: 'Edit'   },
-  // { localSrc: '/videos/JaviHero.mp4',                    title: 'JaviHero',              client: 'Personal', category: 'Edit'   },
-  // { localSrc: '/videos/JustVisa Video Auto-tune.mp4',    title: 'Auto-tune Edit',        client: 'JustVisa', category: 'Edit'   },
-  // { localSrc: '/videos/KRÜ.mp4',                         title: 'KRÜ',                   client: 'KRÜ',      category: 'Edit'   },
-  // { localSrc: '/videos/que mas quieren de miiiii.mp4',   title: 'Que Más Quieren',       client: 'Personal', category: 'Edit'   },
-  // { localSrc: '/videos/Sbreath.mp4',                     title: 'Sbreath',               client: 'Sbreath',  category: 'Edit'   },
-  // { localSrc: '/videos/TIMING PERFECTO.mp4',             title: 'Timing Perfecto',       client: 'Personal', category: 'Edit'   },
-  // { localSrc: '/videos/Unitiled 1.mp4',                  title: 'Untitled 1',            client: 'Personal', category: 'Edit'   },
-]
-
-const reels = [
-  { localSrc: 'https://res.cloudinary.com/tehospedo/video/upload/v1783625443/Mrjoshua_2_ivuol6.mp4',  title: 'Gameplay',          platform: 'youtube-shorts' as const, client: 'MrJoshua_' },
-  // { localSrc: 'https://files.catbox.moe/r7ms2z.mp4',  title: 'Gameplay', platform: 'youtube-shorts' as const, client: 'TvBotti' },
-  // { localSrc: 'https://files.catbox.moe/einfqn.mp4',  title: 'Gameplay', platform: 'youtube-shorts' as const, client: 'JustVisa' },
-  { localSrc: 'https://res.cloudinary.com/tehospedo/video/upload/v1783625456/Sbreath_rvkzdk.mp4',  title: 'Gameplay',     platform: 'youtube-shorts' as const, client: 'iSBreath' },
-  { localSrc: 'https://res.cloudinary.com/tehospedo/video/upload/v1783625456/JaviHero_e1usq9.mp4',  title: 'Gameplay',     platform: 'youtube-shorts' as const, client: 'JaviHero' },
-  { localSrc: 'https://res.cloudinary.com/tehospedo/video/upload/v1783625457/Justvisa_3_hfzhqx.mp4',  title: 'Just Chatting',       platform: 'youtube-shorts' as const, client: 'JustVisa' },
-  { localSrc: 'https://res.cloudinary.com/tehospedo/video/upload/v1783625448/justvisa_4_halri3.mp4',  title: 'Vlog',          platform: 'youtube-shorts' as const, client: 'JustVisa' },
-  { localSrc: 'https://res.cloudinary.com/tehospedo/video/upload/v1783625450/competitivo_es_divertido_2_kp9qe9.mp4',  title: 'Competitivo es divertido',          platform: 'youtube-shorts' as const, client: 'MrJoshua_' },
-]
+import { youtubeVideos, reels } from "../../data/videos"
 ---
 
 <section id="videos" class="relative z-10 overflow-hidden py-28">
@@ -89,8 +64,8 @@ const reels = [
         {youtubeVideos.map((v, i) => (
           <div class="reveal" data-reveal-delay={i * 80}>
             <YoutubeVideoCard
-              videoId={(v as any).videoId}
-              localSrc={(v as any).localSrc}
+              videoId={v.videoId}
+              localSrc={v.localSrc}
               title={v.title}
               client={v.client}
               category={v.category}
@@ -106,8 +81,8 @@ const reels = [
         {reels.map((r, i) => (
           <div class="reveal" data-reveal-delay={i * 80}>
             <ReelCard
-              videoId={(r as any).videoId}
-              localSrc={(r as any).localSrc}
+              videoId={r.videoId}
+              localSrc={r.localSrc}
               title={r.title}
               platform={r.platform}
               client={r.client}

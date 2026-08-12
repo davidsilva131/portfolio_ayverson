@@ -1,0 +1,36 @@
+# VFX Ayverson — robots.txt
+# Full crawl allowed. AI / answer engines are EXPLICITLY welcomed
+# (GEO/AEO: the site content is meant to be citable by these engines).
+
+User-agent: *
+Allow: /
+
+# ── AI / answer engines (GEO/AEO) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://portfolio-ayverson.pages.dev/sitemap-index.xml
