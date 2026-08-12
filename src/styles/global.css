@@ -41,6 +41,12 @@ body::before {
   will-change: opacity, transform;
 }
 
+/* Kinetic blur: headline lines start soft and sharpen during the reveal.
+   The JS animates filter to blur(0px); fallbacks below force it off. */
+.reveal[data-reveal-blur] {
+  filter: blur(8px);
+}
+
 /* Anchor scroll offset — the navbar is fixed (h≈64px), so smooth-scroll
    anchor links land behind it without this. scroll-margin-top lets the
    browser know to stop 80px above the target. Matches Tailwind v4's
@@ -59,6 +65,7 @@ body::before {
 html:not(.js) .reveal {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
 /* Respect reduced motion users. */
@@ -66,5 +73,6 @@ html:not(.js) .reveal {
   .reveal {
     opacity: 1;
     transform: none;
+    filter: none;
   }
 }

@@ -15,21 +15,12 @@ const translations: Translations = {
   "nav.volver-arriba":    { es: "Volver arriba",        en: "Back to top" },
 
   // ── Hero ──
-  "hero.badge":           { es: "Editor Profesional de Videos", en: "Professional Video Editor" },
-  "hero.line1_potencia":  { es: "Potencia",      en: "Boost" },
-  "hero.line1_tu":        { es: " tu ",           en: " your " },
-  "hero.line1_contenido": { es: "contenido",      en: "content" },
-  "hero.line2_con":       { es: "con ",           en: "with " },
-  "hero.line2_ediciones": { es: "ediciones",      en: "edits" },
-  "hero.line2_creativas": { es: " creativas, ",    en: " creative, " },
-  "hero.line3_efectos":   { es: "efectos",        en: "effects" },
-  "hero.line3_y":         { es: " y ",            en: " and " },
-  "hero.line3_animaciones": { es: "animaciones",  en: "animations" },
-  "hero.line3_unicas":    { es: " únicas",        en: " unique" },
-  "hero.subtitle":        { es: "Edición con ritmo, efectos y motion para creadores que quieren destacar.", en: "Video editing with rhythm, effects and motion for creators who want to stand out." },
+  "hero.badge":           { es: "Editor de Video & Motion Designer", en: "Video Editor and Motion Designer" },
+  "hero.line1":           { es: "El detalle está", en: "The detail is" },
+  "hero.line2":           { es: "en cada corte.",   en: "in every cut." },
+  "hero.subtitle":        { es: "Potenciando tu contenido con ediciones creativas y efectos únicos.", en: "Video editing with rhythm, effects and motion for creators who want to stand out." },
   "hero.btn_contactame":  { es: "Contáctame",    en: "Contact Me" },
   "hero.btn_ver_trabajo": { es: "Ver mi trabajo", en: "See My Work" },
-  "hero.video_destacado": { es: "Video destacado por el editor", en: "Editor's featured video" },
 
   // ── Clients ──
   "clients.title_creadores": { es: "Creadores que ", en: "Creators who " },
@@ -60,10 +51,6 @@ const translations: Translations = {
   "contact.line2":        { es: "comienza aquí",    en: "starts here" },
   "contact.x_name":       { es: "X (Twitter)",      en: "X (Twitter)" },
   "contact.ig_name":      { es: "Instagram",        en: "Instagram" },
-
-  // ── Video Card ──
-  "videocard.featured":   { es: "DESTACADO",        en: "FEATURED" },
-  "videocard.mirar":      { es: "Mirar en YouTube", en: "Watch on YouTube" },
 
   // ── Platform Badge ──
   "platform.suscriptores":{ es: "suscriptores",     en: "subscribers" },

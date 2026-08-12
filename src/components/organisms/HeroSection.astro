@@ -1,18 +1,13 @@
 ---
-// Organism — full hero section: gradient headline + featured video card
+// Organism — editorial manifesto hero: pure typography, no asset.
+// The type IS the design: each headline line lifts out of an overflow
+// mask with a blur-to-sharp transition, staggered via data-reveal-delay.
 import Badge from "../atoms/Badge.astro"
-import VideoCard from "../molecules/VideoCard.astro"
-
-interface Props {
-  videoId?: string
-}
-
-const { videoId = "de12qz_ZDSg" } = Astro.props
 ---
 
 <section
   id="inicio"
-  class="relative flex min-h-[100dvh] items-center overflow-hidden py-28"
+  class="relative flex min-h-[100dvh] items-center overflow-hidden py-24"
 >
 
   <!-- Dots grid texture -->
@@ -21,79 +16,60 @@ const { videoId = "de12qz_ZDSg" } = Astro.props
     class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,rgba(255,255,255,0.055)_1px,transparent_1px)] bg-size-[30px_30px]"
   ></div>
 
-  <div class="relative mx-auto w-full max-w-6xl px-5">
-    <div class="grid items-center gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-10">
+  <div class="relative mx-auto w-full max-w-6xl px-5 text-center">
 
-      <!-- ── LEFT: Text content ── -->
-      <div class="flex flex-col gap-7">
-
-        <!-- Badge -->
-        <div class="reveal w-fit">
-          <Badge label="Editor Profesional de Videos" dataI18n="hero.badge" />
-        </div>
-
-        <!-- Headline -->
-        <h1 class="reveal text-[2rem] font-black leading-[1.08] tracking-tight sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.25rem]" data-reveal-delay="100">
-          <!-- Línea 1: Potencia tu contenido -->
-          <span class="block">
-            <span class="text-white" data-i18n="hero.line1_potencia">Potencia</span>
-            <span class="text-white" data-i18n="hero.line1_tu"> tu </span>
-            <span class="bg-linear-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent" data-i18n="hero.line1_contenido">contenido</span>
-          </span>
-          <!-- Línea 2: con ediciones creativas -->
-          <span class="block">
-            <span class="text-white" data-i18n="hero.line2_con">con </span>
-            <span class="text-white" data-i18n="hero.line2_ediciones">ediciones</span>
-            <span class="text-white" data-i18n="hero.line2_creativas"> creativas, </span>
-          </span>
-          <!-- Línea 3: efectos y animaciones únicas -->
-          <span class="block">
-            <span class="text-white" data-i18n="hero.line3_efectos">efectos</span>
-            <span class="text-white" data-i18n="hero.line3_y"> y </span>
-            <span class="text-white" data-i18n="hero.line3_animaciones">animaciones</span>
-            <span class="text-white" data-i18n="hero.line3_unicas"> únicas</span>
-          </span>
-        </h1>
-
-        <!-- Description -->
-        <p class="reveal max-w-lg text-base leading-relaxed text-white/60 sm:text-lg" data-reveal-delay="200" data-i18n="hero.subtitle">
-          Edición con ritmo, efectos y motion para creadores que quieren destacar.
-        </p>
-
-        <!-- CTAs -->
-        <div class="reveal flex flex-wrap gap-4" data-reveal-delay="300">
-          <button
-            type="button"
-            data-open-contact-modal
-            class="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-violet-600 px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_30px_-12px_rgba(139,92,246,0.6)] transition-all duration-300 hover:bg-violet-500 active:scale-[0.98]"
-          >
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span data-i18n="hero.btn_contactame">Contáctame</span>
-          </button>
-
-          <a
-            href="#videos"
-            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white/75 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white"
-          >
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-            </svg>
-            <span data-i18n="hero.btn_ver_trabajo">Ver mi trabajo</span>
-          </a>
-        </div>
-
-      </div>
-
-      <!-- ── RIGHT: Video card ── -->
-      <div class="reveal flex justify-center lg:justify-end" data-reveal-delay="150">
-        <div class="w-full max-w-140">
-          <VideoCard videoId={videoId} title="Video destacado por el editor" />
-        </div>
-      </div>
-
+    <!-- Eyebrow -->
+    <div class="reveal flex justify-center">
+      <Badge label="Editor Profesional de Videos" dataI18n="hero.badge" />
     </div>
-  </div>
 
+    <!-- Headline — one masked line per block, kinetic reveal.
+         Poster-scale: the type is the only content of this section. -->
+    <h1 class="mt-8 text-[2.75rem] font-black leading-[1.05] tracking-tighter text-white sm:text-6xl lg:text-8xl xl:text-[7rem]">
+      <span class="block overflow-hidden pb-1">
+        <span class="reveal block" data-reveal-delay="100" data-reveal-blur>
+          <span data-i18n="hero.line1">El detalle está</span>
+        </span>
+      </span>
+      <span class="block overflow-hidden pb-1">
+        <span class="reveal block" data-reveal-delay="200" data-reveal-blur>
+          <span data-i18n="hero.line2">en cada corte.</span>
+        </span>
+      </span>
+    </h1>
+
+    <!-- Description -->
+    <p
+      class="reveal mx-auto mt-7 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg"
+      data-reveal-delay="300"
+      data-i18n="hero.subtitle"
+    >
+      Edición con ritmo, efectos y motion para creadores que quieren destacar.
+    </p>
+
+    <!-- CTAs -->
+    <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-4" data-reveal-delay="400">
+      <button
+        type="button"
+        data-open-contact-modal
+        class="inline-flex cursor-pointer items-center gap-2.5 rounded-full bg-violet-600 px-7 py-3.5 text-sm font-bold text-white shadow-[0_12px_30px_-12px_rgba(139,92,246,0.6)] transition-all duration-300 hover:bg-violet-500 active:scale-[0.98]"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span data-i18n="hero.btn_contactame">Contáctame</span>
+      </button>
+
+      <a
+        href="#videos"
+        class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white/75 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:text-white"
+      >
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+        </svg>
+        <span data-i18n="hero.btn_ver_trabajo">Ver mi trabajo</span>
+      </a>
+    </div>
+
+  </div>
 </section>
