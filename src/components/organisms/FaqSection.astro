@@ -77,7 +77,7 @@ const faqs: Array<{
 ]
 ---
 
-<section id="faq" class="relative z-10 overflow-hidden py-28">
+<section id="preguntas" class="relative z-10 overflow-hidden py-28">
 
   <!-- Dot grid -->
   <div
@@ -88,7 +88,7 @@ const faqs: Array<{
   <div class="relative mx-auto w-full max-w-3xl px-5">
 
     <!-- ── Section header ── -->
-    <div class="mb-16 flex flex-col items-center gap-4 text-center">
+    <div class="reveal mb-16 flex flex-col items-center gap-4 text-center">
       <Badge label="FAQ" dot="violet" dataI18n="faq.badge" />
       <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
         <span class="text-white" data-i18n="faq.title_preguntas">Preguntas </span>
@@ -100,7 +100,7 @@ const faqs: Array<{
     </div>
 
     <!-- ── Accordion list ── -->
-    <div class="rounded-2xl border border-white/5 bg-white/3 px-4 backdrop-blur-md sm:px-8">
+    <div class="reveal rounded-2xl border border-white/5 bg-white/3 px-4 backdrop-blur-md sm:px-8" data-reveal-delay="80">
       {faqs.map((faq) => (
         <FaqItem question={faq.question} answer={faq.answer} parts={faq.parts} i18nQuestion={faq.i18nQ} i18nAnswer={faq.i18nA} />
       ))}

@@ -26,3 +26,36 @@ body::before {
     radial-gradient(ellipse at 80% 30%, rgba(52, 0, 105, 0.6) 0%, transparent 55%),
     radial-gradient(ellipse at 50% 100%, rgba(0, 44, 105, 0.6) 0%, transparent 55%);
 }
+
+/* ── Scroll reveal initial state ─────────────────────────────────
+   The .reveal class sets the hidden starting transform/opacity.
+   Motion's inView() + animate() is what toggles this and runs
+   the actual transition in src/scripts/reveal.ts. We keep the
+   CSS state minimal so the lib owns the runtime behavior. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: opacity, transform;
+}
+
+/* Anchor scroll offset — the navbar is fixed (h≈64px), so smooth-scroll
+   anchor links land behind it without this. scroll-margin-top lets the
+   browser know to stop 80px above the target. Matches Tailwind v4's
+   spacing scale. */
+:where(section[id], [data-anchor-target]) {
+  scroll-margin-top: 5rem; /* 80px — navbar height + breathing room */
+}
+
+/* No-JS fallback: content must never stay hidden. */
+html:not(.js) .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect reduced motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

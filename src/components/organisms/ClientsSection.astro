@@ -39,7 +39,7 @@ const clients = [
   <div class="relative mx-auto w-full max-w-6xl px-5">
 
     <!-- ── Section header ── -->
-    <div class="mb-16 flex flex-col items-center gap-4 text-center">
+    <div class="reveal mb-16 flex flex-col items-center gap-4 text-center">
       <Badge label="Clientes" dot="violet" dataI18n="clients.badge" />
       <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
         <span class="text-white" data-i18n="clients.title_creadores">Creadores que </span>
@@ -53,14 +53,16 @@ const clients = [
 
     <!-- ── Client card grid ── -->
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {clients.map(client => (
-        <ClientCard
-          name={client.name}
-          platform={client.platform}
-          subscribers={client.subscribers}
-          avatar={client.avatar}
-          banner={client.banner}
-        />
+      {clients.map((client, i) => (
+        <div class="reveal" data-reveal-delay={i * 80}>
+          <ClientCard
+            name={client.name}
+            platform={client.platform}
+            subscribers={client.subscribers}
+            avatar={client.avatar}
+            banner={client.banner}
+          />
+        </div>
       ))}
     </div>
 

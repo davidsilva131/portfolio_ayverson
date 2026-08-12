@@ -39,7 +39,7 @@ const reels = [
   <div class="relative mx-auto w-full max-w-6xl px-5">
 
     <!-- ── Section header ── -->
-    <div class="mb-12 flex flex-col items-center gap-4 text-center">
+    <div class="reveal mb-12 flex flex-col items-center gap-4 text-center">
       <Badge label="Portafolio" dot="violet" dataI18n="videos.badge" />
       <h2 class="text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl">
         <span class="text-white" data-i18n="videos.title_mi">Mi </span>
@@ -53,7 +53,7 @@ const reels = [
     </div>
 
     <!-- ── Tab switcher ── -->
-    <div class="mb-10 flex justify-center">
+    <div class="reveal mb-10 flex justify-center" data-reveal-delay="80">
       <div class="flex gap-1 rounded-full border border-white/10 bg-white/5 p-1 backdrop-blur-sm">
 
         <button
@@ -88,14 +88,16 @@ const reels = [
     <!-- ── YouTube panel ── -->
     <div id="panel-youtube" data-panel="youtube" class="hidden">
       <div class="grid gap-5 sm:grid-cols-2">
-        {youtubeVideos.map(v => (
-          <YoutubeVideoCard
-            videoId={(v as any).videoId}
-            localSrc={(v as any).localSrc}
-            title={v.title}
-            client={v.client}
-            category={v.category}
-          />
+        {youtubeVideos.map((v, i) => (
+          <div class="reveal" data-reveal-delay={i * 80}>
+            <YoutubeVideoCard
+              videoId={(v as any).videoId}
+              localSrc={(v as any).localSrc}
+              title={v.title}
+              client={v.client}
+              category={v.category}
+            />
+          </div>
         ))}
       </div>
     </div>
@@ -103,14 +105,16 @@ const reels = [
     <!-- ── Reels panel ── -->
     <div id="panel-reels" data-panel="reels">
       <div class="flex flex-wrap justify-center gap-4 [&>*]:w-[calc(50%-0.5rem)] sm:[&>*]:w-[calc(33.333%-0.89rem)]">
-        {reels.map(r => (
-          <ReelCard
-            videoId={(r as any).videoId}
-            localSrc={(r as any).localSrc}
-            title={r.title}
-            platform={r.platform}
-            client={r.client}
-          />
+        {reels.map((r, i) => (
+          <div class="reveal" data-reveal-delay={i * 80}>
+            <ReelCard
+              videoId={(r as any).videoId}
+              localSrc={(r as any).localSrc}
+              title={r.title}
+              platform={r.platform}
+              client={r.client}
+            />
+          </div>
         ))}
       </div>
     </div>
